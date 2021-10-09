@@ -59,8 +59,8 @@ function gatcha(channel, name) {
     "시간이모자라슬픈",
     "막고라데이승률80%",
     "메카츄를토닥이는",
-    "칭호: 메카츄"
-    ""
+    "칭호: 메카츄",
+    "50%확률로common을뽑은"
   );
   var R = new Array(
     "능지가점점사라지는",
@@ -82,7 +82,8 @@ function gatcha(channel, name) {
     "승률50%을찍은",
     "전장8등붙박이",
     "칭호: 메츄",
-    "막고라데이승률50%"
+    "막고라데이승률50%",
+    "20%확률로Rare을뽑은"
   );
   var E = new Array(
     "절벽에핀한송이장미",
@@ -99,7 +100,8 @@ function gatcha(channel, name) {
     "묘수풀이200트달성한",
     "막고라데이승률30%",
     "27년경력창조손해맛집",
-    "요천지1호신자"
+    "요천지1호신자",
+    "17.5%확률로Epic을뽑은"
   );
   var L = new Array(
     "메카츄와메츄의주인",
@@ -109,13 +111,13 @@ function gatcha(channel, name) {
   var GL = new Array("막고라데이43연승의전설");
 
   var ran = randomNum(1, 1000);
-  if (ran <= 550) {
+  if (ran <= 500) {
     client.say(channel, `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`);
-  } else if (ran <= 750) {
+  } else if (ran <= 700) {
     client.say(channel, `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`);
-  } else if (ran <= 900) {
+  } else if (ran <= 875) {
     client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
-  } else if (ran <= 975) {
+  } else if (ran <= 950) {
     client.say(
       channel,
       `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
@@ -140,15 +142,16 @@ function onMessageHandler(channel, tags, message, self) {
   //client.say(channel, commandName);
   if (commandName == "!티봇 상태") {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
+  } else if (commandName == "!트게더") {
+    client.say(channel, `https://tgd.kr/s/surrenderhs`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "진모양");
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-  } /*else if (commandName == "!업타임") {
+  } else if (commandName == "!막고라 ${message}");
+  /*else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
-    
-  }*/ else if (
-    commandName == "!디코"
+  }*/ else if (commandName == "!디코"
   ) {
     client.say(channel, `디스코드: 그런거없다`);
   } else if (commandName == "!친추") {
@@ -176,7 +179,7 @@ function onMessageHandler(channel, tags, message, self) {
     {
       for (var i=0;i<5;i++)
         {
-          gatcha(channel, '모양');  
+          gatcha(channel, '진모양');  
         }
     }
 }
