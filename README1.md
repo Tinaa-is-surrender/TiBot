@@ -1,2 +1,0 @@
-# TiBot
-Twitch Bot
