@@ -28,7 +28,7 @@ var countDownDate = new Date("Sep 14, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
-//localstorage
+//
 
 //gatcha
 function gatcha(channel, name) {
@@ -150,10 +150,10 @@ function onMessageHandler(channel, tags, message, self) {
     gatcha(channel, "진모양");
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-  } else if (commandName == "!막고라 신청")
-    client.say(channel, `${tags.username}님 확인되었습니다. !막고라 목록`);
-  /*else if (commandName == "!업타임") {
-    client.say(channel, `방송 업타임: `);
+  } /*else if (commandName == "!막고라 신청")
+    client.say(channel, `${tags.username}님 확인되었습니다. !막고라 목록`); 막고라 신청한 닉네임을 임시테이블에 저장 후 출력??
+    else if (commandName == "!업타임") {
+    client.say(channel, `방송 업타임: `); 업타임은 twitch api에
   }*/ else if (
     commandName == "!디코"
   ) {
