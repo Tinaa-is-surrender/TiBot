@@ -151,7 +151,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
   } /*else if (commandName == "!막고라 신청")
-    client.say(channel, `${tags.username}님 확인되었습니다. !막고라 목록`); 막고라 신청한 닉네임을 임시테이블에 저장 후 출력??
+    client.say(channel, `${tags.username}님 확인되었습니다. !막고라 목록`); 막고라 신청한 닉네임을 임시테이블에 저장 후 출력
     else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `); 업타임은 twitch api에
   }*/ else if (
