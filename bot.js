@@ -1,5 +1,3 @@
-
-
 const tmi = require("tmi.js");
 
 // Define configuration options
@@ -52,13 +50,17 @@ function gatcha(channel, name) {
     "5턴까지영능만누른",
     "진균에서아나콘드라뽑은",
     "다이아10의망령",
-    "명치에화염구을맞은",
+    "명치에불덩이작렬을맞은",
     "승률80%을찍은",
     "첫번째죽음의기사",
     "밧줄이타서당황한",
+    "랩실의망령대학원생",
+    "요즘나이가들어슬픈",
     "시간이모자라슬픈",
     "막고라데이승률80%",
+    "메카츄를토닥이는",
     "칭호: 메카츄"
+    ""
   );
   var R = new Array(
     "능지가점점사라지는",
@@ -94,22 +96,22 @@ function gatcha(channel, name) {
     "마지막순간에생각나는",
     "자락서스가나오지않는",
     "승률30%을찍은",
-    "묘수풀이200트달성한"
-    "27년경력창조손해맛집"
+    "묘수풀이200트달성한",
+    "막고라데이승률30%",
+    "27년경력창조손해맛집",
+    "요천지1호신자"
   );
   var L = new Array(
-    "이런을외쳐버린",
-    "전장의지배자",
-    "거짓말처럼승리를쟁취한",
-    "전장점수4K달성한"
-    //"트위치에서제일진지하고진중하고냉정하고냉철하고이성적인스트리머"
+    "메카츄와메츄의주인",
+    "동전산거를성공시킨",
+    "트위치에서제일진지하고진중하고냉정하고냉철하고이성적인스트리머"
   );
-  var GL = new Array("하스스톤잘하는");
+  var GL = new Array("막고라데이43연승의전설");
 
   var ran = randomNum(1, 1000);
-  if (ran <= 600) {
+  if (ran <= 550) {
     client.say(channel, `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`);
-  } else if (ran <= 800) {
+  } else if (ran <= 750) {
     client.say(channel, `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`);
   } else if (ran <= 900) {
     client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
@@ -138,58 +140,49 @@ function onMessageHandler(channel, tags, message, self) {
   //client.say(channel, commandName);
   if (commandName == "!티봇 상태") {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
-    
   } else if (commandName == "!가챠") {
-    gatcha(channel, "티나");
-    
+    gatcha(channel, "진모양");
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-    
   } /*else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
     
-  }*/ else if (commandName == "!디코") {
+  }*/ else if (
+    commandName == "!디코"
+  ) {
     client.say(channel, `디스코드: 그런거없다`);
-    
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-    
-  } else if (commandName == "!포잉트") {
-    client.say(channel, `https://twip.kr/xx_eeee#point`);
-    
   } else if (commandName == "!유튜브") {
-    client.say(channel, `https://url.kr/???`);
-    
-  } else if (commandName == "!나나나이스") {
-    client.say(channel, `♪₍๐•ᴗ•๐₎ 난난나나이스 ♪₍๐•ᴗ•๐₎ 기분 죠앙 ♪₍๐•ᴗ•๐₎`);
-    
+    client.say(
+      channel,
+      `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
+    );
   } else if (commandName == "!방송") {
-    client.say(channel, `${channel}님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 9월 14일!`);
-    
-  } else if (commandName == "!티나") {
-    client.say(channel, `٩(๑•̀o•́๑)و ٩(๑•̀o•́๑)و 으쌰으쌰 ٩(๑•̀o•́๑)و ٩(๑•̀o•́๑)و`);
-    
-  } else if (commandName == '티하') {
-		client.say(channel, `@${tags.username} 님, 안녕하세용⸜❤︎⸝‍`);
-    
-	} else if (commandName == '티바') {
-		client.say(channel, `@${tags.username} 님, 구빰⸜❤︎⸝‍`);
-    
+    client.say(
+      channel,
+      `${channel}님이 방송 시작한지 ${days +
+        1}일째! 첫 방송날은 2012년 9월 14일!`
+    );
+  } else if (commandName == "모하") {
+    client.say(channel, `@${tags.username} 님, 모하!`);
+  } else if (commandName == "모바") {
+    client.say(channel, `@${tags.username} 님, 모바ㅠㅠ`);
   }
-  /*else if (commandName == "!히지가챠") {
-    gatcha(channel, "히지이");
+  else if (commandName == "!가차") {
+    gatcha(channel, "진모양");
     }
-  else if (commandName == '!히지연차')
+  else if (commandName == '!모양연차')
     {
-      for (var i=0;i<3;i++)
+      for (var i=0;i<5;i++)
         {
-          gatcha(channel, '히지이');  
+          gatcha(channel, '모양');  
         }
-    }*/
+    }
 }
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
 }
-//https://api.twitch.tv/helix/search/channels?query=xx_eeee < api
+//https://api.twitch.tv/helix/search/channels?query=surrenderhs < api
