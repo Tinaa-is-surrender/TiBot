@@ -29,7 +29,7 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //gatcha
-function gatcha(channel, name) {
+function gatcha(channel, name, tags) {
   var C = new Array(
     "그시절우리가좋아한",
     "그누구보다위대한",
@@ -107,13 +107,13 @@ function gatcha(channel, name) {
   var GL = new Array("아시아예비그마");
 
   var ran = randomNum(1, 1000);
-  if (ran <= 500) {
+  if (ran <= 550) {
     client.say(channel, `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`);
-  } else if (ran <= 700) {
+  } else if (ran <= 800) {
     client.say(channel, `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`);
-  } else if (ran <= 875) {
-    client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
   } else if (ran <= 950) {
+    client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
+  } else if (ran <= 990) {
     client.say(
       channel,
       `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
