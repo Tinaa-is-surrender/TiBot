@@ -105,44 +105,37 @@ function gatchalist(name) {
   );
   var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은");
   var GL = new Array("아시아예비그마");
-  var ran = randomNum(1,1000);
-if (ran <= 500) 
-  {
+
+  var ran = randomNum(1, 1000);
+  if (ran <= 500) {
     return `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`;
-  } 
-else if (ran <= 700) 
-  {
+  } else if (ran <= 700) {
     return `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`;
-  } 
-else if (ran <= 875)
-  {
+  } else if (ran <= 875) {
     return `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`;
-  } 
-else if (ran <= 950)
-  {
+  } else if (ran <= 950) {
     return `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`;
-  } 
-else 
-  {
-    return `/me [Legendary++] ✨✨✨${GL[randomNum(0, GL.length - 1)]}${name}✨✨✨`;
+  } else {
+    return `/me [Legendary++] ✨✨✨${
+      GL[randomNum(0, GL.length - 1)]
+    }${name}✨✨✨`;
   }
 }
 
-function gatcha(channel, context, name, row)
-{
+function gatcha(channel, context, name, row) {
   var tempstring = "";
-  for (var i=0;i<row;i++)
-    {
-      if (i != 0)
-        {
-          tempstring += " / ";
-        }
-      tempstring += gatchalist(name);
+  for (var i = 0; i < row; i++) {
+    if (i != 0) {
+      tempstring += " / ";
     }
-  
-  client.say(channel, `/me ${context['display-name']}님이 ${tempstring}를 뽑으셨습니다!`);
+    tempstring += gatchalist(name);
+  }
+
+  client.say(
+    channel,
+    `/me ${context["display-name"]}님이 ${tempstring}를 뽑으셨습니다!`
+  );
 }
-    
 
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
@@ -161,7 +154,7 @@ function onMessageHandler(channel, tags, message, self) {
   }*/ else if (
     commandName == "!가챠"
   ) {
-    gatcha(channel,context, '수블리', 1);
+    gatcha(channel, context, "수블리", 1);
   } /* else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
     /*else if (commandName == "!업타임") {
