@@ -95,7 +95,7 @@ function gatcha(channel, name) {
     "방종곡을트는",
     "신조차질투하는여자",
     "마지막순간에생각나는",
-    "자락서스가나오지않는",
+    "키카드가나오지않는",
     "승률30%을찍은",
     "묘수풀이200트달성한",
     "또지각을해버린",
@@ -104,7 +104,7 @@ function gatcha(channel, name) {
     "17.5%확률로Epic을뽑은"
   );
   var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은");
-  var GL = new Array("아시아예비그마");
+  var GL = new Array("그랜드마스터(진)");
 
   var ran = randomNum(1, 1000);
   if (ran <= 500) {
@@ -116,7 +116,7 @@ function gatcha(channel, name) {
   } else if (ran <= 950) {
     client.say(
       channel,
-      `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
+      `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}, `
     );
   } else {
     client.say(
