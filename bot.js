@@ -23,9 +23,6 @@ function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randNum;
 }
-function randomNum(min, max) {
-  var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
-}
 // First stream date
 var countDownDate = new Date("Sep 14, 2021 00:00:00").getTime();
 var now = new Date().getTime();
@@ -134,6 +131,13 @@ function gatcha(channel, name) {
 }
 
 // Called every time a message comes in
+
+function Makgora(channel, message) {
+  var Red = randomNum(1, 2);
+  if (Red = 1) {
+    client.say(channel, `${message}`)
+  }
+}
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
@@ -159,6 +163,8 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 그런거없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
+  } else if (commandName == "!막고라") {
+      Makgora(message);
   } else if (commandName == "!유튜브") {
     client.say(
       channel,
