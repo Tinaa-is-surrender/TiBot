@@ -161,15 +161,15 @@ function onMessageHandler(channel, tags, message, self) {
   //client.say(channel, commandName);
   if (commandName == "!티봇 상태") {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
-  } else if (commandName == "!트게더") {
+  } /*else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/surrenderhs`);
-  } else if (commandName == "!가챠") {
+  }*/ else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  } else if (commandName == "!명령어") {
+  }/* else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
     /*else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
-  }*/
+  }
   } else if (commandName == "!디코") {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
@@ -192,8 +192,8 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "수바") {
     client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
   } else if (commandName == "!가차") {
-    gatcha(channel, "수블리");
-  } else if (commandName == "!수정연차") {
+    gatcha(channel, "수블리");*/
+    else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
     }
