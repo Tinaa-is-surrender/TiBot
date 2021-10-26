@@ -24,7 +24,7 @@ function randomNum(min, max) {
   return randNum;
 }
 // First stream date
-var countDownDate = new Date("Sep 14, 2021 00:00:00").getTime();
+var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
@@ -181,19 +181,19 @@ function onMessageHandler(channel, tags, message, self) {
       channel,
       `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
     );
-  } else if (commandName == "!방송") {
+  }*/ else if (commandName == "!방송") {
     client.say(
       channel,
-      `${channel}님이 방송 시작한지 ${days +
-        1}일째! 첫 방송날은 2012년 9월 14일!`
-    );
+      `수블리님이 방송 시작한지 ${days +
+        1}일째! 첫 방송날은 2021년 7월 5일!`
+    );/*
   } else if (commandName == "수하") {
     client.say(channel, `@${tags.username} 님, 수하!`);
   } else if (commandName == "수바") {
     client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
   } else if (commandName == "!가차") {
     gatcha(channel, "수블리");*/
-    else if (commandName == "!수정연차") {
+  } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
     }
