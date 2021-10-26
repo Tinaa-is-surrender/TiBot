@@ -138,9 +138,9 @@ function Makgora(channel, tags, message, self) {
   var Blue = "${message}";
   var SUM = 'Red'
   if (Mak = 1) {
-    client.say(channel, `${tags.Red}가 ${tags.Blue}을/를 파괴했습니다!`)
+    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
   if (Mak = 2) {
-    client.say(channel, `${tags.Blue}가 ${tags.Red}을/를 파괴했습니다!`)
+    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
   }
   }
 }
@@ -157,6 +157,8 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
   } else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/surrenderhs`);
+  } else if (commandName == "!테스트") {
+    client.say(channel, `${message} ㅇㅇ.`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
   } else if (commandName == "!명령어") {
@@ -169,7 +171,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
   } else if (commandName == "!막고라 ${message} ${message}") {
-      Makgora(channel);
+      Makgora(channel, );
   } else if (commandName == "!유튜브") {
     client.say(
       channel,
