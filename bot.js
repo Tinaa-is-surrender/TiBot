@@ -29,7 +29,7 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //gatcha
-function gatchalist(channel, name, context) {
+function gatchalist(name) {
   var C = new Array(
     "그시절우리가좋아한",
     "그누구보다위대한",
@@ -105,17 +105,25 @@ function gatchalist(channel, name, context) {
   );
   var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은");
   var GL = new Array("아시아예비그마");
-
-  const ran = randomNum(1, 1000);
-  if (ran <= 500) {
+  var ran = randomNum(1,1000);
+if (ran <= 500) 
+  {
     return `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`;
-  } else if (ran <= 700) {
+  } 
+else if (ran <= 700) 
+  {
     return `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`;
-  } else if (ran <= 875) {
+  } 
+else if (ran <= 875)
+  {
     return `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`;
-  } else if (ran <= 950) {
+  } 
+else if (ran <= 950)
+  {
     return `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`;
-  } else {
+  } 
+else 
+  {
     return `/me [Legendary++] ✨✨✨${GL[randomNum(0, GL.length - 1)]}${name}✨✨✨`;
   }
 }
@@ -132,34 +140,9 @@ function gatcha(channel, context, name, row)
       tempstring += gatchalist(name);
     }
   
-  if (950 <= ran <= 1000) {
-  client.say(channel, `/me ${context['display-name']}님이 ${tempstring}를 뽑으셨습니다!`);}
+  client.say(channel, `/me ${context['display-name']}님이 ${tempstring}를 뽑으셨습니다!`);
+}
     
-}
-
-
-function Makgora(channel, tags, message, self) {
-  var i = Math.floor(Math.random() * 2);
-  if ("$(1)" == "null" || "$(2)" == "null") {
-    ("맞짱뜨게 할 것들을 입력해주세요!");
-  } else {
-    if (i == 0) {
-      const list = [
-        "$(1)님이 $(2)님을 완전히 끝내버렸습니다!",
-        "$(1)님이 $(2)님을 파괴했습니다!",
-        "$(1)님이 $(2)님을 압도했습니다!"
-      ];
-      list[Math.floor(Math.random() * list.length)];
-    } else if (i == 1) {
-      const list = [
-        "$(2)님이 $(1)님을 때려눕혔습니다!",
-        "$(2)님이 $(1)님을 없애버렸습니다!",
-        "$(2)님이 $(1)님을 삭제했습니다!"
-      ];
-      list[Math.floor(Math.random() * list.length)];
-    }
-  }
-}
 
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
@@ -178,7 +161,7 @@ function onMessageHandler(channel, tags, message, self) {
   }*/ else if (
     commandName == "!가챠"
   ) {
-    gatcha(channel, "수블리");
+    gatcha(channel,context, '수블리', 1);
   } /* else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
     /*else if (commandName == "!업타임") {
