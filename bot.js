@@ -132,10 +132,16 @@ function gatcha(channel, name) {
 
 // Called every time a message comes in
 
-function Makgora(channel, message) {
-  var Red = randomNum(1, 2);
-  if (Red = 1) {
-    client.say(channel, `${message}님이`)
+function Makgora(channel, tags, message, self) {
+  var Mak = randomNum(1, 2);
+  var Red = "${message}";
+  var Blue = "${message}";
+  var SUM = 'Red'
+  if (Mak = 1) {
+    client.say(channel, `${tags.Red}가 ${tags.Blue}을/를 파괴했습니다!`)
+  if (Mak = 2) {
+    client.say(channel, `${tags.Blue}가 ${tags.Red}을/를 파괴했습니다!`)
+  }
   }
 }
 function onMessageHandler(channel, tags, message, self) {
