@@ -130,6 +130,10 @@ function gatcha(channel, name) {
   }
 }
 
+function Makgora(channel, tags, message, self) {
+  $(eval ParseIntvar i = Math.floor(Math.random() * 2);if('$(1)'=='null' || '$(2)'=='null'){ '맞짱뜨게 할 것들을 입력해주세요!';}else{ if(i==0){ const list = ['$(1)님이 $(2)님을 완전히 끝내버렸습니다!', '$(1)님이 $(2)님을 파괴했습니다!', '$(1)님이 $(2)님을 압도했습니다!']; list[Math.floor(Math.random() * list.length)]; } else if(i==1){ const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!']; list[Math.floor(Math.random() * list.length)]; }})
+}
+
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
@@ -154,11 +158,11 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `방송 업타임: `);
   }*/ } else if (commandName == "!디코"
   ) {
-    client.say(channel, `디스코드: 그런거없다`);
+    client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
   } else if (commandName == "!막고라") {
-      Makgora(channel, );
+    Makgora(channel);
   } else if (commandName == "!유튜브") {
     client.say(
       channel,
