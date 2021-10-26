@@ -125,7 +125,7 @@ function gatcha(channel, name) {
   } else {
     client.say(
       channel,
-      `/me [Legendary++] ✨✨✨${GL[randomNum(0, L.length - 1)]}${name}✨✨✨`
+      `/me [Legendary++] ✨✨✨${GL[randomNum(0, GL.length - 1)]}${name}✨✨✨`
     );
   }
 }
