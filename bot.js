@@ -29,7 +29,7 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //gatcha
-function gatcha(channel, name, tags) {
+function gatcha(channel, name) {
   var C = new Array(
     "그시절우리가좋아한",
     "그누구보다위대한",
@@ -107,16 +107,22 @@ function gatcha(channel, name, tags) {
   var GL = new Array("아시아예비그마");
 
   var ran = randomNum(1, 1000);
-  if (ran <= 550) {
-    return `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`;
-  } else if (ran <= 800) {
-    return `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`;
+  if (ran <= 500) {
+    client.say(channel, `/me [Common] ${C[randomNum(0, C.length - 1)]}${name}`);
+  } else if (ran <= 700) {
+    client.say(channel, `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`);
+  } else if (ran <= 875) {
+    client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
   } else if (ran <= 950) {
-    return `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`;
-  } else if (ran <= 990) {
-    return `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`;
+    client.say(
+      channel,
+      `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
+    );
   } else {
-    return `/me [Legendary++] ✨✨✨${GL[randomNum(0, GL.length - 1)]}${name}✨✨✨`;
+    client.say(
+      channel,
+      `/me [Legendary++] ✨✨✨${GL[randomNum(0, GL.length - 1)]}${name}✨✨✨`
+    );
   }
 }
 
@@ -157,11 +163,9 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
   } /*else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/surrenderhs`);
-  }*/ else if (
-    commandName == "!가챠"
-  ) {
+  }*/ else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  } /* else if (commandName == "!명령어") {
+  }/* else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
     /*else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
@@ -177,13 +181,12 @@ function onMessageHandler(channel, tags, message, self) {
       channel,
       `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
     );
-  }*/ else if (
-    commandName == "!방송"
-  ) {
+  }*/ else if (commandName == "!방송") {
     client.say(
       channel,
-      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
-    ); /*
+      `수블리님이 방송 시작한지 ${days +
+        1}일째! 첫 방송날은 2021년 7월 5일!`
+    );/*
   } else if (commandName == "수하") {
     client.say(channel, `@${tags.username} 님, 수하!`);
   } else if (commandName == "수바") {
