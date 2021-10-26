@@ -140,7 +140,7 @@ function Makgora(channel, tags, message, self) {
   if (Mak = 1) {
     client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
   if (Mak = 2) {
-    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
+    client.say(channel, `${Blue}가 ${Red}을/를 파괴했습니다!`)
   }
   }
 }
