@@ -103,7 +103,11 @@ function gatcha(channel, name) {
     "하스스톤의망령",
     "17.5%확률로Epic을뽑은"
   );
-  var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은");
+  var L = new Array(
+    "초롱이친구",
+    "동전산거를성공시킨",
+    "굴단의해골을손에넣은"
+  );
   var GL = new Array("아시아예비그마");
 
   var ran = randomNum(1, 1000);
@@ -132,12 +136,12 @@ function Makgora(channel, tags, message, self) {
   var Mak = randomNum(1, 2);
   var Red = "${message}";
   var Blue = "${message}";
-  var SUM = "Red";
-  if ((Mak = 1)) {
-    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`);
-    if ((Mak = 2)) {
-      client.say(channel, `${Blue}가 ${Red}을/를 파괴했습니다!`);
-    }
+  var SUM = 'Red'
+  if (Mak = 1) {
+    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
+  if (Mak = 2) {
+    client.say(channel, `${Blue}가 ${Red}을/를 파괴했습니다!`)
+  }
   }
 }
 function onMessageHandler(channel, tags, message, self) {
@@ -159,15 +163,15 @@ function onMessageHandler(channel, tags, message, self) {
     gatcha(channel, "수블리");
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-    /*else if (commandName == "!업타임") {
+  /*else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
-  }*/
-  } else if (commandName == "!디코") {
+  }*/ } else if (commandName == "!디코"
+  ) {
     client.say(channel, `디스코드: 그런거없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
   } else if (commandName == "!막고라 ${message} ${message}") {
-    Makgora(channel);
+      Makgora(channel, );
   } else if (commandName == "!유튜브") {
     client.say(
       channel,
@@ -183,25 +187,21 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `@${tags.username} 님, 수하!`);
   } else if (commandName == "수바") {
     client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
-  } else if (commandName == "!가차") {
+  }
+  else if (commandName == "!가차") {
     gatcha(channel, "수블리");
-  } else if (commandName == "!수정연차") {
-    for (var i = 0; i < 5; i++) {
-      gatcha(channel, "");
-
+    }
+  else if (commandName == '!수정연차')
+    {
+      for (var i=0;i<5;i++)
+        {
+          gatcha(channel, '');  
+        }
+    }
+}
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
 }
 //https://api.twitch.tv/helix/search/channels?query=surrenderhs < api
-
-$(eval var i = Math.floor(Math.random() * 2);
-if('$(1)'=='null' || '$(2)'=='null')
-{ '맞짱뜨게 할 것들을 입력해주세요!';}
-else{ 
-if(i==0){ 
-const list = ['$(1)님이 $(2)님을 완전히 끝내버렸습니다!', '$(1)님이 $(2)님을 파괴했습니다!', '$(1)님이 $(2)님을 압도했습니다!']; 
-list[Math.floor(Math.random() * list.length)]; } 
-else if(i==1){ const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!']; 
-list[Math.floor(Math.random() * list.length)]; }})
