@@ -49,40 +49,40 @@ function gatcha(channel, name) {
     "피지컬이딸려슬픈",
     "5턴까지영능만누른",
     "진균에서아나콘드라뽑은",
-    "다이아10의망령",
+    "전설4자리의망령",
     "명치에불덩이작렬을맞은",
     "승률80%을찍은",
     "첫번째죽음의기사",
     "밧줄이타서당황한",
-    "랩실의망령대학원생",
+    "도적승률70%",
     "요즘나이가들어슬픈",
     "시간이모자라슬픈",
-    "막고라데이승률80%",
-    "메카츄를토닥이는",
-    "칭호: 메카츄",
+    "피의울음소리를뽑은",
+    "보루방패를뽑은",
+    "칭호: 5000등",
     "50%확률로common을뽑은"
   );
   var R = new Array(
     "능지가점점사라지는",
     "신조차모독하는천재",
     "사전에불가능은없는",
-    "패스트업을저질러버린",
+    "조치에게패배한",
     "당신의본진이되고싶은",
     "국민프로듀서들의1픽",
     "멸공의횃불",
     "우주최강미녀",
     "행동하는양심",
     "다시태어난대도오직",
-    "전지전능한대학원생",
+    "전지전능한",
     "당신이있어행복한",
     "마지막잎새",
     "조현수장현재김정수백학준그리고",
     "신이라불리운여자",
     "안보이는라디오의신",
     "승률50%을찍은",
-    "전장8등붙박이",
-    "칭호: 메츄",
-    "막고라데이승률50%",
+    "퀘법에게40딜을맞은",
+    "칭호: 3000등",
+    "갑자기방종을해버린",
     "20%확률로Rare을뽑은"
   );
   var E = new Array(
@@ -92,23 +92,23 @@ function gatcha(channel, name) {
     "또킬각을놓쳐버린",
     "선술집난투의최강자",
     "의외의실력을보여준",
-    "요그사론의첫번째제자",
+    "방종곡을트는",
     "신조차질투하는여자",
     "마지막순간에생각나는",
     "자락서스가나오지않는",
     "승률30%을찍은",
     "묘수풀이200트달성한",
-    "막고라데이승률30%",
-    "27년경력창조손해맛집",
-    "요천지1호신자",
+    "또지각을해버린",
+    "조치에게호스팅을넣은",
+    "하스스톤의망령",
     "17.5%확률로Epic을뽑은"
   );
   var L = new Array(
-    "메카츄와메츄의주인",
+    "초롱이친구",
     "동전산거를성공시킨",
-    "트위치에서제일진지하고진중하고냉정하고냉철하고이성적인스트리머"
+    "굴단의해골을손에넣은"
   );
-  var GL = new Array("막고라데이43연승의전설");
+  var GL = new Array("아시아예비그마");
 
   var ran = randomNum(1, 1000);
   if (ran <= 500) {
@@ -145,7 +145,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/surrenderhs`);
   } else if (commandName == "!가챠") {
-    gatcha(channel, "진모양");
+    gatcha(channel, "수블리");
   } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
   } else if (commandName == "!막고라 ${message}");
@@ -167,19 +167,19 @@ function onMessageHandler(channel, tags, message, self) {
       `${channel}님이 방송 시작한지 ${days +
         1}일째! 첫 방송날은 2012년 9월 14일!`
     );
-  } else if (commandName == "모하") {
-    client.say(channel, `@${tags.username} 님, 모하!`);
-  } else if (commandName == "모바") {
-    client.say(channel, `@${tags.username} 님, 모바ㅠㅠ`);
+  } else if (commandName == "수하") {
+    client.say(channel, `@${tags.username} 님, 수하!`);
+  } else if (commandName == "수바") {
+    client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
   }
   else if (commandName == "!가차") {
-    gatcha(channel, "진모양");
+    gatcha(channel, "수블리");
     }
-  else if (commandName == '!모양연차')
+  else if (commandName == '!수정연차')
     {
       for (var i=0;i<5;i++)
         {
-          gatcha(channel, '진모양');  
+          gatcha(channel, '');  
         }
     }
 }
