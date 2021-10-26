@@ -131,19 +131,6 @@ function gatcha(channel, name) {
 }
 
 // Called every time a message comes in
-
-function Makgora(channel, tags, message, self) {
-  var Mak = randomNum(1, 2);
-  var Red = "${message}";
-  var Blue = "${message}";
-  var SUM = 'Red'
-  if (Mak = 1) {
-    client.say(channel, `${Red}가 ${Blue}을/를 파괴했습니다!`)
-  if (Mak = 2) {
-    client.say(channel, `${Blue}가 ${Red}을/를 파괴했습니다!`)
-  }
-  }
-}
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
@@ -170,7 +157,7 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 그런거없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  } else if (commandName == "!막고라 ${message} ${message}") {
+  } else if (commandName == "!막고라") {
       Makgora(channel, );
   } else if (commandName == "!유튜브") {
     client.say(
@@ -195,7 +182,7 @@ function onMessageHandler(channel, tags, message, self) {
     {
       for (var i=0;i<5;i++)
         {
-          gatcha(channel, '');  
+          gatcha(channel, '수블리');  
         }
     }
 }
