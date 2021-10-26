@@ -23,6 +23,9 @@ function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randNum;
 }
+function randomNum(min, max) {
+  var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+}
 // First stream date
 var countDownDate = new Date("Sep 14, 2021 00:00:00").getTime();
 var now = new Date().getTime();
