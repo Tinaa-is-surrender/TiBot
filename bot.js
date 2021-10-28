@@ -127,6 +127,7 @@ function gatcha(channel, name) {
 }
 
 function Makgora(channel, tags, message, self) {
+  var q = $(1); var w = $(2)
   var i = Math.floor(Math.random() * 2);
   if ("$(1)" == "null" || "$(2)" == "null") {
     ("맞짱뜨게 할 것들을 입력해주세요!");
@@ -174,7 +175,7 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  } else if (commandName == "!막고라 $(1) $(2)") {
+  } else if (commandName == "!막고라 $(q) $(w)") {
     Makgora(channel);
   } else if (commandName == "!유튜브") {
     client.say(
