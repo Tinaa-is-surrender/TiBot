@@ -151,17 +151,28 @@ function Makgora(channel, tags, message, self) {
   }
 }
 
-client.on('message', (channel, tags, message, self) => {
+/*client.on('message', (channel, tags, message, self) => {
 	if(self || !message.startsWith('!')) return;
 
 	const args = message.slice(1).split(' ');
 	const command = args.shift().toLowerCase();
 
 	if(command === '맞짱') {
-		client.say(channel, `${args.join(' ')}님이 ${args.join(' ')}님을 부쉈습니다!`);
+    var k = Math.floor(Math.random() * 2);
+    if("${arg.join(' ')}" == "null" || "${arg.join(' ')}" == "null") {
+      ("맞짱뜨게 할 것들을 입력해주세요!");
+    } else {
+      if (k == 0) {
+        const list ["${arg.join(' ')}님이 ${arg.join(' ')}님을 압도했습니다!",
+                    "${arg.join(' ')}님이 ${arg.join(' ')}님을 없애버렸습니다!",
+                    "${arg.join(' ')}님이 ${arg.join(' ')}님을 삭제했습니다!"];
+                    list[Math.floor(Math.random() * list.length)];
+      }
+    }
+    client.say(channel, `${args.join(' ')}님이 ${args.join(' ')}님을 부쉈습니다!`);
 	}
 });
-					
+*/					
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
