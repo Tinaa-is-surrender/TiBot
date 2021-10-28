@@ -192,11 +192,11 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "수바") {
     client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
   } else if (commandName == "!가차") {
-    gatcha(channel, "수블리");*/
+    gatcha(channel, "수블리");
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
-    }
+    }*/
   }
 }
 
