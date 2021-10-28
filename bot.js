@@ -175,9 +175,9 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  } else if (commandName == "!막고라 $(q) $(w)") {
+  }*/ else if (commandName == "!막고라 $(q) $(w)") {
     Makgora(channel);
-  } else if (commandName == "!유튜브") {
+  }/* else if (commandName == "!유튜브") {
     client.say(
       channel,
       `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
