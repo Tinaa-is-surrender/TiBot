@@ -126,28 +126,24 @@ function gatcha(channel, name) {
   }
 }
 
-
-  function Makgora(channel, tags, message, self) {
+function Makgora(channel, tags, message, self) {
   var i = Math.floor(Math.random() * 2);
-  const args = message.slice(1).split(' ');
-	const command = args.shift().toLowerCase();
-
-  if ("${args.join(' ')}" == "null" || "${args.join(' ')}" == "null") {
+  if ("$(1)" == "null" || "$(2)" == "null") {
     ("맞짱뜨게 할 것들을 입력해주세요!");
   } else {
     if (i == 0) {
       const list = [
-        "${args.join(' ')}님이 ${args.join(' ')}님을 완전히 끝내버렸습니다!",
-        "${args.join(' ')}님이 ${args.join(' ')}님을 파괴했습니다!",
-        "${args.join(' ')}님이 ${args.join(' ')}님을 압도했습니다!"
+        "$(1)님이 $(2)님을 완전히 끝내버렸습니다!",
+        "$(1)님이 $(2)님을 파괴했습니다!",
+        "$(1)님이 $(2)님을 압도했습니다!"
       ];
       list[Math.floor(Math.random() * list.length)];
       client.say(channel, `$(list)`);
     } else if (i == 1) {
       const list = [
-        "${args.join(' ')}님이 ${args.join(' ')}님을 때려눕혔습니다!",
-        "${args.join(' ')}님이 ${args.join(' ')}님을 없애버렸습니다!",
-        "${args.join(' ')}님이 ${args.join(' ')}님을 삭제했습니다!"
+        "$(2)님이 $(1)님을 때려눕혔습니다!",
+        "$(2)님이 $(1)님을 없애버렸습니다!",
+        "$(2)님이 $(1)님을 삭제했습니다!"
       ];
       list[Math.floor(Math.random() * list.length)];
       client.say(channel, `$(list)`);
@@ -155,6 +151,16 @@ function gatcha(channel, name) {
   }
 }
 
+client.on('message', (channel, tags, message, self) => {
+	if(self || !message.startsWith('!')) return;
+
+	const args = message.slice(1).split(' ');
+	const command = args.shift().toLowerCase();
+
+	if(command === '맞짱') {
+		client.say(channel, `${args.join(' ')}님이 ${args.join(' ')}님을 부쉈습니다!`);
+	}
+});
 					
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
@@ -181,7 +187,7 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  }*/ else if (commandName == "!막고라") {
+  }*/ else if (commandName == "!막고라 $(1) $(2)") {
     Makgora(channel);
   }/* else if (commandName == "!유튜브") {
     client.say(
