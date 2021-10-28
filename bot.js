@@ -151,6 +151,17 @@ function Makgora(channel, tags, message, self) {
   }
 }
 
+client.on('message', (channel, tags, message, self) => {
+	if(self || !message.startsWith('!')) return;
+
+	const args = message.slice(1).split(' ');
+	const command = args.shift().toLowerCase();
+
+	if(command === '맞짱') {
+		client.say(channel, `${args.join(' ')}님이 ${args.join(' ')}님을 부쉈습니다!`);
+	}
+});
+					
 // Called every time a message comes in
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
@@ -176,7 +187,7 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  }*/ else if (commandName == "!막고라 $(1) $(2)" {
+  }*/ else if (commandName == "!막고라 $(1) $(2)") {
     Makgora(channel);
   }/* else if (commandName == "!유튜브") {
     client.say(
