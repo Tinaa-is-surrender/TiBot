@@ -154,7 +154,7 @@ function Makgora(channel, tags, message, self) {
 client.on('message', (channel, tags, message, self) => {
 	if(self || !message.startsWith('!')) return;
 
-	const args = message.slice(1).split('');
+	const args = message.slice(1).split(' ');
 	const command = args.shift().toLowerCase();
 
 	if(command === '맞짱') {
