@@ -130,17 +130,26 @@ function gatcha(channel, name) {
 
 client.on("message", function(channel, user, message, self){
   const commandName = message.trim();
-  const arr = commandName.split(" ");
   const args = message.slice(1).split(' ');
 	const command = args.shift().toLowerCase();
   if(commandName = "!맞짱"){
       console.log("${args.join(' ')}", message);
-      var str = args.join(' ')
+      var str = args.join(' ');
       var res = str.split(" ", 3);
-      client.say(channel, `"${res(1)}"님이 "${res(2)}"님을 박살냈습니다!`)
+      client.say(channel, `"${res[1]}"님이 "${res[2]}"님을 박살냈습니다!`)
     }
 });
-  
+/*original code - nightbot ver.
+$(eval var i = Math.floor(Math.random() * 2);
+  if('$(1)'=='null' || '$(2)'=='null'){ '맞짱뜨게 할 것들을 입력해주세요!';}
+  else{
+   if(i==0){
+     const list = ['$(1)님이 $(2)님을 완전히 끝내버렸습니다!', '$(1)님이 $(2)님을 파괴했습니다!', '$(1)님이 $(2)님을 압도했습니다!'];
+     list[Math.floor(Math.random() * list.length)]; }
+   else if(i==1){
+     const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
+     list[Math.floor(Math.random() * list.length)]; }})
+*/
 
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
