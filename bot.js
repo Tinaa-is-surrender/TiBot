@@ -128,9 +128,14 @@ function gatcha(channel, name) {
 
 // Called every time a message comes in
 
-function duel(channel) {
-  
-}
+client.on("message", function(channel, user, message, self){
+  const commandName = message.trim();
+  const arr = commandName.split(" ");
+  if(commandName = "막고라"){
+      console.log("%s", message);
+      console.log();
+    }
+});
   
 
 function onMessageHandler(channel, tags, message, self) {
@@ -174,6 +179,8 @@ function onMessageHandler(channel, tags, message, self) {
     }
   }
 }
+
+
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
