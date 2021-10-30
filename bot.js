@@ -126,55 +126,52 @@ function gatcha(channel, name) {
   }
 }
 
-				
 // Called every time a message comes in
+
+function duel(channel) {
+  
+}
+  
+
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
   } // Ignore messages from the bot
-
+  
   // Remove whitespace from chat message
   const commandName = message.trim();
   const arr = commandName.split(" ");
   //client.say(channel, commandName);
   if (commandName == "!티봇 상태") {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
-  } /*else if (commandName == "!트게더") {
+  } else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/surrenderhs`);
-  }*/ else if (commandName == "!가챠") {
+  } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  }/* else if (commandName == "!명령어") {
+  } else if (commandName == "!명령어") {
     client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-    /*else if (commandName == "!업타임") {
+  } else if (commandName == "!업타임") {
     client.say(channel, `방송 업타임: `);
-  }
   } else if (commandName == "!디코") {
     client.say(channel, `디스코드: 없다`);
   } else if (commandName == "!친추") {
     client.say(channel, `하이그나이트#31579`);
-  }*/ else if (commandName == "!막고라 $(1) $(2)") {
-    Makgora(channel);
-  }/* else if (commandName == "!유튜브") {
+  } else if (commandName == "!유튜브") {
     client.say(
       channel,
       `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
     );
-  }*/ else if (commandName == "!방송") {
+  } else if (commandName == "!맞짱") {
+    duel(channel);
+  } else if (commandName == "!방송") {
     client.say(
       channel,
-      `수블리님이 방송 시작한지 ${days +
-        1}일째! 첫 방송날은 2021년 7월 5일!`
-    );/*
-  } else if (commandName == "수하") {
-    client.say(channel, `@${tags.username} 님, 수하!`);
-  } else if (commandName == "수바") {
-    client.say(channel, `@${tags.username} 님, 수바ㅠㅠ`);
-  } else if (commandName == "!가차") {
-    gatcha(channel, "수블리");
+      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
+    );
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
-    }*/
+    }
   }
 }
 
