@@ -131,9 +131,13 @@ function gatcha(channel, name) {
 client.on("message", function(channel, user, message, self){
   const commandName = message.trim();
   const arr = commandName.split(" ");
-  if(commandName = "막고라"){
-      console.log("%s", message);
-      console.log();
+  const args = message.slice(1).split(' ');
+	const command = args.shift().toLowerCase();
+  if(commandName = "!맞짱"){
+      console.log("${args.join(' ')}", message);
+      var str = args.join(' ')
+      var res = str.split(" ", 3);
+      client.say(channel, `"${res(1)}"님이 "${res(2)}"님을 박살냈습니다!`)
     }
 });
   
@@ -166,8 +170,6 @@ function onMessageHandler(channel, tags, message, self) {
       channel,
       `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
     );
-  } else if (commandName == "!맞짱") {
-    duel(channel);
   } else if (commandName == "!방송") {
     client.say(
       channel,
