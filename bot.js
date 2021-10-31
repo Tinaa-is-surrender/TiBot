@@ -28,6 +28,10 @@ var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
+//HanGang temperature.
+let promise = fetch("https://api.hangang.msub.kr/");
+
+
 //gatcha
 function gatcha(channel, name) {
   var C = new Array(
@@ -163,27 +167,12 @@ function onMessageHandler(channel, tags, message, self) {
   if (commandName == "!티봇 상태") {
     client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
   } else if (commandName == "!트게더") {
-    client.say(channel, `https://tgd.kr/s/surrenderhs`);
+    client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  } else if (commandName == "!명령어") {
-    client.say(channel, `http://ssakdook.twip.kr/command/surrenderhs`);
-  } else if (commandName == "!업타임") {
-    client.say(channel, `방송 업타임: `);
-  } else if (commandName == "!디코") {
-    client.say(channel, `디스코드: 없다`);
-  } else if (commandName == "!친추") {
-    client.say(channel, `하이그나이트#31579`);
-  } else if (commandName == "!유튜브") {
-    client.say(
-      channel,
-      `https://www.youtube.com/channel/UCBhSlFPjkKUWOBO76tjbblA`
-    );
+    
   } else if (commandName == "!방송") {
-    client.say(
-      channel,
-      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
-    );
+    client.say(channel,`수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`);
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
