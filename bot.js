@@ -41,7 +41,7 @@ function inteligence(channel) {
   //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
   //1~49 나오는 주사위는 70%, 50~100 나오는 주사위는 30%.
   var ran2 = randomNum(1, 100);
-  if(ran2 >= 70){
+  if(ran2 >= 80){
     var int = randomNum(50, 100);
   }
   else {
