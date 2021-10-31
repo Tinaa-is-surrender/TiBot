@@ -30,25 +30,26 @@ var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //HanGang temperature.
 
-function inteligence(){
+function inteligence(channel) {
   var ran2 = randomNum(1, 100);
   var ran3 = randomNum(1, 100);
+  //20% chances to GOOD DICE, 30% chances to NORMAL DICE, 30% chances to BAD DICE
+  //20% chances to 
+  
   var AI = new Array("왜이리 똑똑해?");
   var BI = new Array("나쁘지 않네요");
   var CI = new Array("역시 수블리 ㅋㅋ");
   var DI = new Array("바보 ㅋㅋ");
-  if(ran2 >= 80){
-    client.say(`${AI}`);
+  if (ran2 >= 80) {
+    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${AI}`);
+  } else if (ran2 >= 50) {
+    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${BI}`);
+  } else if (ran2 >= 20) {
+    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${CI}`);
+  } else {
+    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${DI}`);
   }
-  else if(ran2 >= 60){
-    client.say(`${BI}`);
-  }
-  else if(ran2 >= 30){
-    client.say(`${CI}`);
-  }
-  else 
 }
-
 
 //gatcha
 function gatcha(channel, name) {
@@ -150,17 +151,6 @@ function gatcha(channel, name) {
 
 // Called every time a message comes in
 
-client.on("message", function(channel, user, message, self){
-  const commandName = message.trim();
-  const args = message.slice(1).split(' ');
-	const command = args.shift().toLowerCase();
-  if(commandName = "!맞짱"){
-      console.log("${args.join(' ')}", message);
-      var str = args.join(' ');
-      var res = str.split(" ", 3);
-      client.say(channel, `"${res[1]}"님이 "${res[2]}"님을 박살냈습니다!`)
-    }
-});
 /*original code - nightbot ver.
 $(eval var i = Math.floor(Math.random() * 2);
   if('$(1)'=='null' || '$(2)'=='null'){ '맞짱뜨게 할 것들을 입력해주세요!';}
@@ -177,7 +167,7 @@ function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
   } // Ignore messages from the bot
-  
+
   // Remove whitespace from chat message
   const commandName = message.trim();
   const arr = commandName.split(" ");
@@ -188,18 +178,19 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  } else if (commandName == "!한강") {
-    client.say(channel, `도에요`)
+  } else if (commandName == "!지능") {
+    inteligence(channel);
   } else if (commandName == "!방송") {
-    client.say(channel,`수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`);
+    client.say(
+      channel,
+      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
+    );
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
       gatcha(channel, "수블리");
     }
   }
 }
-
-
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
