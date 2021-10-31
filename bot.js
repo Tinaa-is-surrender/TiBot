@@ -29,7 +29,7 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //HanGang temperature.
-let promise = fetch("https://api.hangang.msub.kr/");
+
 
 
 //gatcha
@@ -170,7 +170,8 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-    
+  } else if (commandName == "!한강") {
+    client.say(channel, `도에요`)
   } else if (commandName == "!방송") {
     client.say(channel,`수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`);
   } else if (commandName == "!수정연차") {
