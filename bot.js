@@ -28,8 +28,8 @@ var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
-//HanGang temperature.
 
+//inteligence
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
   //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
@@ -43,20 +43,25 @@ function inteligence(channel) {
   }
  
   var AI = new Array("왜이리 똑똑해?");
-  var BI = new Array("나쁘지 않네요");
-  var CI = new Array("");
+  var BI = new Array("좀 치는데?");
+  var CI = new Array("평범하네요");
   var DI = new Array("바보다에요");
   if (int >= 80) {
     client.say(channel, `수블리의 지능은 현재 ${int}%! ${AI}`);
   } else if (int >= 50) {
     client.say(channel, `수블리의 지능은 현재 ${int}%! ${BI}`);
-  } else if (int >= 20) {
+  } else if (int >= 30) {
     client.say(channel, `수블리의 지능은 현재 ${int}%! ${CI}`);
   } else {
     client.say(channel, `수블리의 지능은 현재 ${int}%! ${DI}`);
   }
 }
-
+//Hangang
+function Hangang(channel){
+var str = '$(urlfetch http://hangang.dkserver.wo.tc)';
+var j = JSON.parse(str);
+  if(j.result === "true" ){
+    client.say(channel,  `${j.time}에 측정된 한강 수온은${j.temp}℃ 입니다.`)}
 //gatcha
 function gatcha(channel, name) {
   var C = new Array(
@@ -186,6 +191,8 @@ function onMessageHandler(channel, tags, message, self) {
     gatcha(channel, "수블리");
   } else if (commandName == "!지능") {
     inteligence(channel);
+  } else if (commandName == "!한강") {
+    Hangang(channel);
   } else if (commandName == "!방송") {
     client.say(
       channel,
