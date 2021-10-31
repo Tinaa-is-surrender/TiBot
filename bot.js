@@ -31,23 +31,29 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //HanGang temperature.
 
 function inteligence(channel) {
+  //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
+  //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
+  //1~49 나오는 주사위는 70%, 50~100 나오는 주사위는 30%.
   var ran2 = randomNum(1, 100);
-  var ran3 = randomNum(1, 100);
-  //20% chances to GOOD DICE, 30% chances to NORMAL DICE, 30% chances to BAD DICE
-  //20% chances to 
-  
+  if(ran2 >= 70){
+    var int = randomNum(50, 100);
+  }
+  else {
+    var int = randomNum(1, 49);
+  }
+ 
   var AI = new Array("왜이리 똑똑해?");
   var BI = new Array("나쁘지 않네요");
-  var CI = new Array("역시 수블리 ㅋㅋ");
-  var DI = new Array("바보 ㅋㅋ");
-  if (ran2 >= 80) {
-    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${AI}`);
-  } else if (ran2 >= 50) {
-    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${BI}`);
-  } else if (ran2 >= 20) {
-    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${CI}`);
+  var CI = new Array("");
+  var DI = new Array("바보다에요");
+  if (int >= 80) {
+    client.say(channel, `수블리의 지능은 현재 ${int}%! ${AI}`);
+  } else if (int >= 50) {
+    client.say(channel, `수블리의 지능은 현재 ${int}%! ${BI}`);
+  } else if (int >= 20) {
+    client.say(channel, `수블리의 지능은 현재 ${int}%! ${CI}`);
   } else {
-    client.say(channel, `수블리의 지능은 현재 ${ran2}%! ${DI}`);
+    client.say(channel, `수블리의 지능은 현재 ${int}%! ${DI}`);
   }
 }
 
@@ -126,7 +132,7 @@ function gatcha(channel, name) {
     "하스스톤의망령",
     "17.5%확률로Epic을뽑은"
   );
-  var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은");
+  var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은", "첫번째죽음의기사");
   var GL = new Array("그랜드마스터(진)");
 
   var ran = randomNum(1, 1000);
