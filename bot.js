@@ -29,10 +29,12 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //url parsing
-var url = require('url');
-var queryData = url.parse(request.url, true).query;
+'use strict';
 
-console.log(queryData);
+var Url = require('url-parse');
+var url = new Url('http://hangang.dkserver.wo.tc');
+var location = url.toString();
+
 //inteligence
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
@@ -63,7 +65,7 @@ function inteligence(channel) {
 //Hangang
 /*function Hangang(channel) {
 
-var j = JSON.parse(str1);
+var j = JSON.parse(url);
   if(j.result === "true" ){
     client.say(channel,  `${j.time}에 측정된 한강 수온은 ${j.temp}℃ 입니다.`)}}*/
 //gatcha
@@ -195,8 +197,6 @@ function onMessageHandler(channel, tags, message, self) {
     gatcha(channel, "수블리");
   } else if (commandName == "!지능") {
     inteligence(channel);
-  } else if (commandName == "!한강") {
-    Hangang(channel);
   } else if (commandName == "!방송") {
     client.say(
       channel,
