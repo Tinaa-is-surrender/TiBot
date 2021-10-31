@@ -30,6 +30,24 @@ var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //HanGang temperature.
 
+function inteligence(){
+  var ran2 = randomNum(1, 100);
+  var ran3 = randomNum(1, 100);
+  var AI = new Array("왜이리 똑똑해?");
+  var BI = new Array("나쁘지 않네요");
+  var CI = new Array("역시 수블리 ㅋㅋ");
+  var DI = new Array("바보 ㅋㅋ");
+  if(ran2 >= 80){
+    client.say(`${AI}`);
+  }
+  else if(ran2 >= 60){
+    client.say(`${BI}`);
+  }
+  else if(ran2 >= 30){
+    client.say(`${CI}`);
+  }
+  else 
+}
 
 
 //gatcha
