@@ -28,7 +28,11 @@ var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
+//url parsing
+var url = require('url');
+var queryData = url.parse(request.url, true).query;
 
+console.log(queryData);
 //inteligence
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
@@ -57,11 +61,11 @@ function inteligence(channel) {
   }
 }
 //Hangang
-function Hangang(channel){
-var str = '$(urlfetch http://hangang.dkserver.wo.tc)';
-var j = JSON.parse(str);
+/*function Hangang(channel) {
+
+var j = JSON.parse(str1);
   if(j.result === "true" ){
-    client.say(channel,  `${j.time}에 측정된 한강 수온은${j.temp}℃ 입니다.`)}
+    client.say(channel,  `${j.time}에 측정된 한강 수온은 ${j.temp}℃ 입니다.`)}}*/
 //gatcha
 function gatcha(channel, name) {
   var C = new Array(
