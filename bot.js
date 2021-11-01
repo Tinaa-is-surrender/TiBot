@@ -34,7 +34,10 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 var Url = require('url-parse');
 var url = new Url('http://hangang.dkserver.wo.tc');
 var location = url.toString();
-
+//calculate
+function count(channel) {
+  var count = new Array(null);
+}
 //inteligence
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
