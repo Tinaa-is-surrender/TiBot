@@ -42,7 +42,7 @@ function count(channel) {
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
   //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
-  //1~49 나오는 주사위는 70%, 50~100 나오는 주사위는 30%.
+  //1~49 나오는 주사위는 80%, 50~100 나오는 주사위는 20%.
   var ran2 = randomNum(1, 100);
   if(ran2 >= 80){
     var int = randomNum(50, 100);
@@ -182,6 +182,10 @@ $(eval var i = Math.floor(Math.random() * 2);
      const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
      list[Math.floor(Math.random() * list.length)]; }})*/
 
+//Duel
+function Duel(channel, tags, message, self){
+  
+}
 
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
