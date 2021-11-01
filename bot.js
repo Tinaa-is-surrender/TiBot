@@ -53,13 +53,13 @@ function inteligence(channel) {
   var CI = new Array("평범하네요");
   var DI = new Array("바보다에요");
   if (int >= 80) {
-    client.say(channel, `수블리의 지능은 현재 ${int}%! ${AI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${AI}`);
   } else if (int >= 50) {
-    client.say(channel, `수블리의 지능은 현재 ${int}%! ${BI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${BI}`);
   } else if (int >= 30) {
-    client.say(channel, `수블리의 지능은 현재 ${int}%! ${CI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${CI}`);
   } else {
-    client.say(channel, `수블리의 지능은 현재 ${int}%! ${DI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${DI}`);
   }
 }
 //Hangang
