@@ -177,8 +177,8 @@ $(eval var i = Math.floor(Math.random() * 2);
      list[Math.floor(Math.random() * list.length)]; }
    else if(i==1){
      const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
-     list[Math.floor(Math.random() * list.length)]; }})
-*/
+     list[Math.floor(Math.random() * list.length)]; }})*/
+
 
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
