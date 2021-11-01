@@ -52,14 +52,14 @@ function inteligence(channel) {
   var BI = new Array("좀 치는데?");
   var CI = new Array("평범하네요");
   var DI = new Array("바보다에요");
-  if (int >= 80) {
-    client.say(channel, `지능은 현재 ${int}%! ${AI}`);
+    if (int >= 80) {
+      client.say(channel, `지능은 현재 ${int}%! ${AI}`);
   } else if (int >= 50) {
-    client.say(channel, `지능은 현재 ${int}%! ${BI}`);
+      client.say(channel, `지능은 현재 ${int}%! ${BI}`);
   } else if (int >= 30) {
-    client.say(channel, `지능은 현재 ${int}%! ${CI}`);
+      client.say(channel, `지능은 현재 ${int}%! ${CI}`);
   } else {
-    client.say(channel, `지능은 현재 ${int}%! ${DI}`);
+      client.say(channel, `지능은 현재 ${int}%! ${DI}`);
   }
 }
 //Hangang
@@ -156,7 +156,7 @@ function gatcha(channel, name) {
   } else if (ran <= 950) {
     client.say(
       channel,
-      `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}, `
+      `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
     );
   } else {
     client.say(
