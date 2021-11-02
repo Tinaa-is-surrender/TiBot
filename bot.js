@@ -187,15 +187,10 @@ $(eval var i = Math.floor(Math.random() * 2);
 
 //Duel
 function duel(channel, user, message, self) {
-if (message.startsWith("!giveaway")) {
+if (message.startsWith("!맞짱")) {
     var input = message.split(' ')[1];
-    if (input.count < 2) return;
-    if (user["display-name"] === "username") {
-        client.say("channel", "!" + input);
-
-    } else {
-        client.say("channel", "No permissions");
-    }
+    var input2 = message.split(' ')[2];
+        console.log(channel, "ㅇㅇ"+"%s"+"%s",input,input2);
 }
 }
 
@@ -218,6 +213,8 @@ function onMessageHandler(channel, tags, message, self) {
     inteligence(channel);
   } else if (commandName == "!추천") {
     client.say(channel, `낚이셨습니다! 물고기 +1`);
+  } else if (commandName == "!맞짱") {
+    duel(channel);
   } else if (commandName == "!티봇 명령어") {
     client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송`);
   } else if (commandName == "!방송") {
