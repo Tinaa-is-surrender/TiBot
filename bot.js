@@ -71,6 +71,9 @@ function inteligence(channel) {
 var j = JSON.parse(url);
   if(j.result === "true" ){
     client.say(channel,  `${j.time}에 측정된 한강 수온은 ${j.temp}℃ 입니다.`)}}*/
+//Sing a song
+function Sing(channel, message, tags) {
+  }
 //gatcha
 function gatcha(channel, name) {
   var C = new Array(
