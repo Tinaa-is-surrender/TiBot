@@ -72,8 +72,16 @@ function gettemperature() {
   return fetch('https://api.hangang.msub.kr/')
   .then(res => res.json())
   .then((result1) => {
-    return fetch('https://api.hangang.msub.kr/')
+    return fetch('https://api.music.msub.kr/?song=Life%20is%20Good')
+    .then(res => res.json())
+    .then((result2) => {
+      return {temp: result1.data, music: result2.data}
+    })
   })
+  .catch((err) => console.log(err))
+}
+function hangang(channel){
+  client.say(channel, ``)
 }
 //Sing a song
 function Sing(channel, message, tags) {
