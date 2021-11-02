@@ -186,8 +186,17 @@ $(eval var i = Math.floor(Math.random() * 2);
      list[Math.floor(Math.random() * list.length)]; }})*/
 
 //Duel
-function Duel(channel, tags, message, self){
-  
+function duel(channel, user, message, self) {
+if (message.startsWith("!giveaway")) {
+    var input = message.split(' ')[1];
+    if (input.count < 2) return;
+    if (user["display-name"] === "username") {
+        client.say("channel", "!" + input);
+
+    } else {
+        client.say("channel", "No permissions");
+    }
+}
 }
 
 function onMessageHandler(channel, tags, message, self) {
