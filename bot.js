@@ -207,6 +207,8 @@ function onMessageHandler(channel, tags, message, self) {
     gatcha(channel, "수블리");
   } else if (commandName == "!지능") {
     inteligence(channel);
+  } else if (commandName == "!추천") {
+    client.say(channel, `낚이셨습니다! 물고기 +1`);
   } else if (commandName == "!방송") {
     client.say(
       channel,
