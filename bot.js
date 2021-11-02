@@ -66,10 +66,6 @@ function inteligence(channel) {
   }
 }
 
-function intel(channel){
-  var inteligence = randomNum(1, 100);
-  client.say(channel, `렛시의 지능은 현재 ${inteligence}%!`);
-}
 //Hangang
 /*function Hangang(channel) {
 
@@ -217,7 +213,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
   } else if (commandName == "!지능") {
-    intel(channel);
+    inteligence(channel);
   } else if (commandName == "!추천") {
     client.say(channel, `낚이셨습니다! 물고기 +1`);
   } else if (commandName == "!giveaway") {
@@ -227,7 +223,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!방송") {
     client.say(
       channel,
-      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
+      `티나는티나야님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
     );
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
