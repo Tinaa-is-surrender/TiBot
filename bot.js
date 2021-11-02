@@ -29,10 +29,10 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //url parsing
-'use strict';
+("use strict");
 
-var Url = require('url-parse');
-var url = new Url('http://hangang.dkserver.wo.tc');
+var Url = require("url-parse");
+var url = new Url("http://hangang.dkserver.wo.tc");
 var location = url.toString();
 //calculate
 function count(channel) {
@@ -44,25 +44,24 @@ function inteligence(channel) {
   //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
   //1~49 나오는 주사위는 80%, 50~100 나오는 주사위는 20%.
   var ran2 = randomNum(1, 100);
-  if(ran2 >= 80){
+  if (ran2 >= 80) {
     var int = randomNum(50, 100);
-  }
-  else {
+  } else {
     var int = randomNum(1, 49);
   }
- 
+
   var AI = new Array("왜이리 똑똑해?");
   var BI = new Array("좀 치는데?");
   var CI = new Array("평범하네요");
   var DI = new Array("바보다에요");
-    if (int >= 80) {
-      client.say(channel, `지능은 현재 ${int}%! ${AI}`);
+  if (int >= 80) {
+    client.say(channel, `지능은 현재 ${int}%! ${AI}`);
   } else if (int >= 50) {
-      client.say(channel, `지능은 현재 ${int}%! ${BI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${BI}`);
   } else if (int >= 30) {
-      client.say(channel, `지능은 현재 ${int}%! ${CI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${CI}`);
   } else {
-      client.say(channel, `지능은 현재 ${int}%! ${DI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${DI}`);
   }
 }
 //Hangang
@@ -72,8 +71,7 @@ var j = JSON.parse(url);
   if(j.result === "true" ){
     client.say(channel,  `${j.time}에 측정된 한강 수온은 ${j.temp}℃ 입니다.`)}}*/
 //Sing a song
-function Sing(channel, message, tags) {
-  }
+function Sing(channel, message, tags) {}
 //gatcha
 function gatcha(channel, name) {
   var C = new Array(
@@ -149,7 +147,12 @@ function gatcha(channel, name) {
     "하스스톤의망령",
     "17.5%확률로Epic을뽑은"
   );
-  var L = new Array("초롱이친구", "동전산거를성공시킨", "굴단의해골을손에넣은", "첫번째죽음의기사");
+  var L = new Array(
+    "초롱이친구",
+    "동전산거를성공시킨",
+    "굴단의해골을손에넣은",
+    "첫번째죽음의기사"
+  );
   var GL = new Array("그랜드마스터(진)");
 
   var ran = randomNum(1, 1000);
@@ -185,17 +188,17 @@ $(eval var i = Math.floor(Math.random() * 2);
      const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
      list[Math.floor(Math.random() * list.length)]; }})*/
 
-client.on('message', (channel, tags, message, self) => {
-	if(self || !message.startsWith('!')) return;
+function duel(channel, tags, message, self, user) {
+  if (message.startsWith("!맞짱")) {
+    var input = message.split(" ")[1];
+    var input2 = message.split(" ")[2];
+    if (user["display-name"] === "username") {
+      client.say(channel, "%s" + "님이" + "%s" + "님을 박살냈습니다!", input, input2);
+    }
+  }
+}
 
-	var input = message.slice(1).split(' ');
-  
-	var command = input.shift().toLowerCase();
 
-	if(command === 'echo') {
-		client.say(channel, `@${tags.username}, you said: "${input.join(' ')}"`);
-	}
-});
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
