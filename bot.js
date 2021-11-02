@@ -67,11 +67,9 @@ function inteligence(channel) {
 }
 
 //Hangang
-/*function Hangang(channel) {
+function Hangang(channel) {
 
-var j = JSON.parse(url);
-  if(j.result === "true" ){
-    client.say(channel,  `${j.time}에 측정된 한강 수온은 ${j.temp}℃ 입니다.`)}}*/
+fetch()
 //Sing a song
 function Sing(channel, message, tags) {
   }
