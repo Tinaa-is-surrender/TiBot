@@ -65,6 +65,11 @@ function inteligence(channel) {
       client.say(channel, `지능은 현재 ${int}%! ${DI}`);
   }
 }
+
+function intel(channel){
+  var inteligence = randomNum(1, 100);
+  client.say(channel, `렛시의 지능은 현재 ${inteligence}%!`);
+}
 //Hangang
 /*function Hangang(channel) {
 
@@ -212,11 +217,11 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
   } else if (commandName == "!지능") {
-    inteligence(channel);
+    intel(channel);
   } else if (commandName == "!추천") {
     client.say(channel, `낚이셨습니다! 물고기 +1`);
   } else if (commandName == "!giveaway") {
-    duel(channel);
+    
   } else if (commandName == "!티봇 명령어") {
     client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송`);
   } else if (commandName == "!방송") {
