@@ -67,7 +67,7 @@ function inteligence(channel) {
 }
 
 //Hangang
-var url = 'https://api.hangang.msub.kr/';
+/*var url = 'https://api.hangang.msub.kr/';
 function gettemperature() {
   return fetch('https://api.hangang.msub.kr/')
   .then(res => res.json())
@@ -82,7 +82,8 @@ function gettemperature() {
 }
 function hangang(channel){
   client.say(channel, ``)
-}
+}*/
+
 //Sing a song
 function Sing(channel, message, tags) {
   }
