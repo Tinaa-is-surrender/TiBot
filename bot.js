@@ -67,9 +67,14 @@ function inteligence(channel) {
 }
 
 //Hangang
-function Hangang(channel) {
-
-fetch()
+var url = 'https://api.hangang.msub.kr/';
+function gettemperature() {
+  return fetch('https://api.hangang.msub.kr/')
+  .then(res => res.json())
+  .then((result1) => {
+    return fetch('https://api.hangang.msub.kr/')
+  })
+}
 //Sing a song
 function Sing(channel, message, tags) {
   }
