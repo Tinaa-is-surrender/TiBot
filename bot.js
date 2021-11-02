@@ -19,6 +19,36 @@ client.on("connected", onConnectedHandler);
 // Connect to Twitch:
 client.connect();
 
+client.on('message', async (channel, context, message) => {
+  console.log('channel', {
+    channel,
+    user: context.username,
+    message
+  });
+});
+
+const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
+
+client.on('message', async (channel, context, message) => {
+  const isNotBot = context.username.toLowerCase() !== process.env.TWITCH_BOT_USERNAME.toLowerCase();
+
+  if ( isNotBot ) {
+    client.say(channel, `Responding to ${context.username} message: ${message}`);
+  }
+});
+
+client.on('message', async (channel, context, message) => {
+  const isNotBot = context.username.toLowerCase() !== process.env.TWITCH_BOT_USERNAME.toLowerCase();
+
+  if ( !isNotBot ) return;
+
+  const [raw, command, argument] = message.match(regexpCommand);
+
+  if ( command ) {
+    client.say(channel, `Command "${command}" found with argument "${argument}"`);
+  }
+});
+
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randNum;
@@ -28,16 +58,9 @@ var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
-//url parsing
-("use strict");
 
-var Url = require("url-parse");
-var url = new Url("http://hangang.dkserver.wo.tc");
-var location = url.toString();
-//calculate
-function count(channel) {
-  var count = new Array(null);
-}
+
+
 //inteligence
 function inteligence(channel) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
