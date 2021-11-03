@@ -198,17 +198,14 @@ $(eval var i = Math.floor(Math.random() * 2);
      const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
      list[Math.floor(Math.random() * list.length)]; }})*/
 
-client.on('message', (channel, tags, message, self) => {
-	if(self || !message.startsWith('!')) return;
+client.on("chat", function(channel, user, message, self){
 
-	var input = message.slice(1).split(' ');
-  
-	var command = input.shift().toLowerCase();
-
-	if(command === 'echo') {
-		client.say(channel, `@${tags.username}, you said: "${input.join(' ')}"`);
-	}
+if(message.startsWith("!duel")){
+var input = message.split(' ')[1];
+client.say("tinaa_is_surrender", "Go check out the wonderful " + input + " over at htpp://twitch.tv/" + input);
+};
 });
+
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
