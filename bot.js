@@ -29,39 +29,31 @@ var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 //url parsing
-("use strict");
 
-var Url = require("url-parse");
-var url = new Url("http://hangang.dkserver.wo.tc");
-var location = url.toString();
-//calculate
-function count(channel) {
-  var count = new Array(null);
-}
 //inteligence
-function inteligence(channel) {
+function inteligence(channel, name) {
   //높은 숫자 나오는 주사위 = 낮은 확률로 나옴
   //낮은 숫자 나오는 주사위 = 높은 확률로 나옴
   //1~49 나오는 주사위는 80%, 50~100 나오는 주사위는 20%.
   var ran2 = randomNum(1, 100);
-  if (ran2 >= 90) {
+  if (ran2 >= 80) {
     var int = randomNum(50, 100);
   } else {
     var int = randomNum(1, 49);
   }
 
-  var AI = new Array("왜이리 똑똑해?");
-  var BI = new Array("좀 치는데?");
-  var CI = new Array("평범하네요");
+  var AI = new Array("왜이리 똑똑해?","천재 아니야?", "당신 누구야!");
+  var BI = new Array("좀 치는데?", "은근 똑똑하네");
+  var CI = new Array("평범하네요", "평소대로네요", `역시 단부님이야 ㅋㅋ`);
   var DI = new Array("바보다에요");
   if (int >= 80) {
-    client.say(channel, `지능은 현재 ${int}%! ${AI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${AI[randomNum(0, AI.length - 1)]}`);
   } else if (int >= 50) {
-    client.say(channel, `지능은 현재 ${int}%! ${BI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${BI[randomNum(0, BI.length - 1)]}`);
   } else if (int >= 30) {
-    client.say(channel, `지능은 현재 ${int}%! ${CI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${CI[randomNum(0, CI.length - 1)]}`);
   } else {
-    client.say(channel, `지능은 현재 ${int}%! ${DI}`);
+    client.say(channel, `지능은 현재 ${int}%! ${DI[randomNum(0, DI.length - 1)]}`);
   }
 }
 
