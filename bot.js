@@ -205,21 +205,18 @@ client.on("chat", function(channel, user, message, self) {
 
 client.on("chat", function(channel, user, message, self) {
   var songlist = new Array();
-}
   if (message.startsWith("!노래 추가")) {
     var songs = message.split(" ")[2];
      songlist.push(`${songs}`);
-    client.say(channel, '[ ' + songlist[i]+ ' ] 가 추가되었습니다');
+    client.say(channel, '[ ' + songs + ' ] 가 추가되었습니다');
   }
   else if (message.startsWith("!노래 초기화")) {
-    var songlist = [];
+    var songlist = new Array();
     client.say(channel, '목록이 초기화 되었습니다.')
   }
-  else if (message.startsWith("!노래 목록")) {
-    for (var i = 0; i < songlist.length; i++) {
-    client.say(channel, '목록: '+ songlist[i]);
+  else if (message.startsWith("!노래 목록")){
+    client.say(channel, '목록: ${songlist[1]} songlist[2] songlist[3] songlist[4]');
   }
-}
 });
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
