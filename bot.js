@@ -44,7 +44,7 @@ function inteligence(channel) {
 
   var AI = new Array("왜이리 똑똑해?","천재 아니야?", "당신 누구야!");
   var BI = new Array("좀 치는데?", "은근 똑똑하네");
-  var CI = new Array("평범하네요", "평소대로네요", `역시 수블리 ㅋㅋ`);
+  var CI = new Array("평범하네요", "평소대로네요", `역시 ${name} ㅋㅋ`);
   var DI = new Array("바보다에요");
   var name = "수블리"
   if (int >= 80) {
@@ -174,7 +174,7 @@ client.on("chat", function(channel, user, message, self) {
     var input = message.split(" ")[1];
     var input2 = message.split(" ")[2];
     if (input == null || input2 == null)
-      client.say(channel, "맞짱 뜰 둘을 입력 해주세요!");
+      client.say(channel, "맞짱을 뜰 둘을 입력 해주세요!");
     else {
       if (duel == 0) {
         const list1 = [
