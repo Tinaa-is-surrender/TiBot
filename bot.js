@@ -207,15 +207,24 @@ client.on("chat", function(channel, user, message, self) {
   var songlist = new Array();
   if (message.startsWith("!노래 추가")) {
     var songs = message.split(" ")[2];
-     songlist.push(`${songs}`);
-    client.say(channel, '[ ' + songs + ' ] 가 추가되었습니다');
+      if (songlist[0] == undefined)
+        songlist[0] = songs
+      else if(songlist[1] == undefined)
+        songlist[1] = songs
+      else if(songlist[2] == undefined)
+        songlist[2] = songs
+      else if(songlist[3] == undefined)
+        songlist[3] = songs
+      else if(songlist[4] == undefined)
+        songlist[4] = songs
+         client.say(channel, '[ ' + songs + ' ] 가 추가되었습니다');
   }
   else if (message.startsWith("!노래 초기화")) {
     var songlist = new Array();
     client.say(channel, '목록이 초기화 되었습니다.')
   }
   else if (message.startsWith("!노래 목록")){
-    client.say(channel, '목록: ${songlist[1]} songlist[2] songlist[3] songlist[4]');
+    client.say(channel, '목록: '+ songlist[0]+' '+songlist[1]+' '+songlist[2]+' '+songlist[3]+' '+songlist[4]);
   }
 });
 function onMessageHandler(channel, tags, message, self) {
