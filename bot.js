@@ -204,10 +204,11 @@ client.on("chat", function(channel, user, message, self) {
 //sing
 
 client.on("chat", function(channel, user, message, self) {
+  var songlist = [];
   if (message.startsWith("!노래")) {
     var songs = message.split(" ")[1];
-    console.log(songs)
-    var songArray = songs
+     songlist.push(`${songs}`);
+    console.log(songlist)
   }
 });
 function onMessageHandler(channel, tags, message, self) {
