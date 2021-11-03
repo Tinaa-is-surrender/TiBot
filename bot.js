@@ -205,10 +205,16 @@ client.on("chat", function(channel, user, message, self) {
 
 client.on("chat", function(channel, user, message, self) {
   var songlist = [];
-  if (message.startsWith("!노래")) {
-    var songs = message.split(" ")[1];
+  if (message.startsWith("!노래 추가")) {
+    var songs = message.split(" ")[2];
      songlist.push(`${songs}`);
-    console.log(songlist)
+    console.log('목록: '+ songlist);
+  }
+  else if (message.startsWith("!노래 초기화")) {
+    var songlist = [];
+  }
+  else if (message.startsWith("!노래 목록")) {
+    client.say(`${songlist}`)
   }
 });
 function onMessageHandler(channel, tags, message, self) {
