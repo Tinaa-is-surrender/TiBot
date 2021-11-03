@@ -44,9 +44,9 @@ function inteligence(channel) {
 
   var AI = new Array("왜이리 똑똑해?","천재 아니야?", "당신 누구야!");
   var BI = new Array("좀 치는데?", "은근 똑똑하네");
-  var CI = new Array("평범하네요", "평소대로네요", `역시 단부님이야 ㅋㅋ`);
+  var CI = new Array("평범하네요", "평소대로네요", `역시 수블리 ㅋㅋ`);
   var DI = new Array("바보다에요");
-  var name = "김탄푸"
+  var name = "수블리"
   if (int >= 80) {
     client.say(channel, `${name}의 지능은 현재 ${int}%! ${AI[randomNum(0, AI.length - 1)]}`);
   } else if (int >= 50) {
