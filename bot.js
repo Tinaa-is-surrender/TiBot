@@ -235,7 +235,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!방송") {
     client.say(
       channel,
-      `티나는티나야님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
+      `수블리님이 방송 시작한지 ${days + 1}일째! 첫 방송날은 2021년 7월 5일!`
     );
   } else if (commandName == "!수정연차") {
     for (var i = 0; i < 5; i++) {
