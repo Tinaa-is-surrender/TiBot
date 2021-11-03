@@ -190,24 +190,15 @@ function gatcha(channel, name) {
 
 // Called every time a message comes in
 
-/*original code - nightbot ver.
-$(eval var i = Math.floor(Math.random() * 2);
-  if('$(1)'=='null' || '$(2)'=='null'){ '맞짱뜨게 할 것들을 입력해주세요!';}
-  else{
-   if(i==0){
-     const list = ['$(1)님이 $(2)님을 완전히 끝내버렸습니다!', '$(1)님이 $(2)님을 파괴했습니다!', '$(1)님이 $(2)님을 압도했습니다!'];
-     list[Math.floor(Math.random() * list.length)]; }
-   else if(i==1){
-     const list = ['$(2)님이 $(1)님을 때려눕혔습니다!', '$(2)님이 $(1)님을 없애버렸습니다!', '$(2)님이 $(1)님을 삭제했습니다!'];
-     list[Math.floor(Math.random() * list.length)]; }})*/
+//duel!
 
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!맞짱")) {
     var duel = Math.floor(Math.random() * 2);
     var input = message.split(" ")[1];
     var input2 = message.split(" ")[2];
-    if (input == "undefined" || input2 == "undefined")
-      client.say(channel, "맞짱 뜰 둘을 입력해주세요!");
+    if (input == null || input2 == null)
+      client.say(channel, "맞짱 뜰 둘을 입력 해주세요!");
     else {
       if (duel == 0) {
         const list1 = [
@@ -247,7 +238,6 @@ function onMessageHandler(channel, tags, message, self) {
     inteligence(channel);
   } else if (commandName == "!추천") {
     client.say(channel, `낚이셨습니다! 물고기 +1`);
-  } else if (commandName == "!giveaway") {
   } else if (commandName == "!티봇 명령어") {
     client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송`);
   } else if (commandName == "!방송") {
