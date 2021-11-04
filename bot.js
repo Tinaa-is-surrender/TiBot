@@ -229,7 +229,7 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!추천") {
     client.say(channel, `낚이셨습니다! 물고기 +1`);
   } else if (commandName == "!티봇 명령어") {
-    client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송`);
+    client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송 !맞짱`);
   } else if (commandName == "!방송") {
     client.say(
       channel,
