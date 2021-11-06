@@ -1,6 +1,8 @@
 dependencies:
   '@twurple/api': 5.0.8
   '@twurple/auth': 5.0.8
+  '@twurple/chat': 5.0.8
+  '@twurple/common': 5.0.8
   express: 4.17.1
   request: 2.88.2
   tmi.js: 1.8.5
@@ -14,12 +16,44 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mYUCjrp5hJgimceC5bof3zzmElyxzW4ty+73IjY12wvxLAqsq0CbgLGspnJm6KgwEfGoeRnISZD4EXJidG3FvA==
+  /@d-fischer/connection/6.6.1:
+    dependencies:
+      '@d-fischer/isomorphic-ws': /@d-fischer/isomorphic-ws/7.0.0/ws@8.2.3
+      '@d-fischer/logger': 4.1.1
+      '@d-fischer/shared-utils': 3.2.0
+      '@d-fischer/typed-event-emitter': 3.2.3
+      '@types/node': 16.11.6
+      '@types/ws': 8.2.0
+      tslib: 2.3.1
+      ws: 8.2.3
+    dev: false
+    resolution:
+      integrity: sha512-YO+5bbfj6Fh8JPO1jm8VeQ7CN0yFuzbg402UoSjnQ0R1T4PiuYRkvVfo0wihhqqRIBJ73CdAQyWHE8YvsTeltg==
   /@d-fischer/cross-fetch/4.0.2:
     dependencies:
       node-fetch: 2.6.1
     dev: false
     resolution:
       integrity: sha512-3ONhZxPmgCerBi8rU9kDQktF2zMpv7gkVJuoR8I+pYeO4QWccEcqQem0i1mLBh7/y7ejR474RZb3S3EO/Sdi3A==
+  /@d-fischer/deprecate/2.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-wlw3HwEanJFJKctwLzhfOM6LKwR70FPfGZGoKOhWBKyOPXk+3a9Cc6S9zhm6tka7xKtpmfxVIReGUwPnMbIaZg==
+  /@d-fischer/escape-string-regexp/5.0.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-7eoxnxcto5eVPW5h1T+ePnVFukmI9f/ZR9nlBLh1t3kyzJDUNor2C+YW9H/Terw3YnbZSDgDYrpCJCHtOtAQHw==
+  /@d-fischer/isomorphic-ws/7.0.0/ws@8.2.3:
+    dependencies:
+      ws: 8.2.3
+    dev: false
+    id: registry.npmjs.org/@d-fischer/isomorphic-ws/7.0.0
+    peerDependencies:
+      ws: ^8.2.0
+    resolution:
+      integrity: sha512-bydCy1tKvPKvyF0KeDvN1aiAZA4CzQVa2gHifNQczW9Czl89vZ4QHnJMjUcTboWKecbnz5mGiM9PjKA1Xx2Dyg==
   /@d-fischer/logger/4.1.1:
     dependencies:
       '@d-fischer/shared-utils': 3.2.0
@@ -63,6 +97,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-YgAPpd0jxtchZlEqvVmL21A+/Ottx5759s6THiJs0o5+8pPIrshBlULhmfunbaidHmViuUhjxzZfqRkYl0MR9g==
+  /@d-fischer/typed-event-emitter/3.2.3:
+    dependencies:
+      '@types/node': 14.17.32
+      tslib: 2.3.1
+    dev: false
+    resolution:
+      integrity: sha512-7K/JGLBFQdHICEbyCN/VlMi8r2MnsNrUUdMARg/NphpK3lRf6qdliH4Me3sPfxemgNU6xuy308Z7K/HSWipoqA==
   /@twurple/api-call/5.0.8:
     dependencies:
       '@d-fischer/cross-fetch': 4.0.2
@@ -97,6 +138,22 @@ packages:
     dev: false
     resolution:
       integrity: sha512-DT6eAuZ+dKm/ZlQVpEJKPNUud8l7b2LkU/MRglrVQrRMaFQ7r+RKal31jBvMYiWBQS1A8PqMcNm+EPWYNG9+DA==
+  /@twurple/chat/5.0.8:
+    dependencies:
+      '@d-fischer/cache-decorators': 3.0.0
+      '@d-fischer/deprecate': 2.0.2
+      '@d-fischer/logger': 4.1.1
+      '@d-fischer/rate-limiter': 0.4.5
+      '@d-fischer/shared-utils': 3.2.0
+      '@d-fischer/typed-event-emitter': 3.2.3
+      '@twurple/common': 5.0.8
+      ircv3: 0.28.1
+      tslib: 2.3.1
+    dev: false
+    peerDependencies:
+      '@twurple/auth': ^5.0.0
+    resolution:
+      integrity: sha512-2xlw1oRLS/ULukzbdf7O1n6qo53hxeRa7QpJDbhh0AhXGOPv+sCd6UTa9YG/O98XaXWyCp+9OPRljQy6SNtTgA==
   /@twurple/common/5.0.8:
     dependencies:
       '@d-fischer/shared-utils': 3.2.0
@@ -124,6 +181,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==
+  /@types/ws/8.2.0:
+    dependencies:
+      '@types/node': 16.11.6
+    dev: false
+    resolution:
+      integrity: sha512-cyeefcUCgJlEk+hk2h3N+MqKKsPViQgF5boi9TTHSK+PoR9KWBb/C5ccPcDyAqgsbAYHTwulch725DV84+pSpg==
   /accepts/1.3.7:
     dependencies:
       mime-types: 2.1.33
@@ -628,6 +691,19 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
+  /ircv3/0.28.1:
+    dependencies:
+      '@d-fischer/connection': 6.6.1
+      '@d-fischer/escape-string-regexp': 5.0.0
+      '@d-fischer/logger': 4.1.1
+      '@d-fischer/shared-utils': 3.2.0
+      '@d-fischer/typed-event-emitter': 3.2.3
+      '@types/node': 14.17.32
+      klona: 2.0.5
+      tslib: 2.3.1
+    dev: false
+    resolution:
+      integrity: sha512-zYTN7S96evwQrQF7+1024JpGzPrK0enSiabd9uhzik9TZMstsellIUkLcQHYOxdq+P0dfDPqbvGqKrg2OAiaeA==
   /is-arguments/1.1.1:
     dependencies:
       call-bind: 1.0.2
@@ -1210,6 +1286,8 @@ shrinkwrapVersion: 3
 specifiers:
   '@twurple/api': ^5.0.8
   '@twurple/auth': ^5.0.8
+  '@twurple/chat': ^5.0.8
+  '@twurple/common': ^5.0.8
   express: ^4.17.1
   request: ^2.88.2
   tmi.js: ^1.8.5
