@@ -1,4 +1,3 @@
-
 const tmi = require("tmi.js");
 
 // Define configuration options
@@ -19,7 +18,6 @@ client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
 client.connect();
-
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -43,23 +41,34 @@ function inteligence(channel) {
   } else {
     var int = randomNum(1, 49);
   }
-  var name = "수블리"
-  var AI = new Array("왜이리 똑똑해?","천재 아니야?", "당신 누구야!");
+  var name = "수블리";
+  var AI = new Array("왜이리 똑똑해?", "천재 아니야?", "당신 누구야!");
   var BI = new Array("좀 치는데?", "은근 똑똑하네");
   var CI = new Array("평범하네요", "평소대로네요", `역시 ${name} ㅋㅋ`);
   var DI = new Array("바보다에요");
-  
+
   if (int >= 80) {
-    client.say(channel, `${name}의 지능은 현재 ${int}%! ${AI[randomNum(0, AI.length - 1)]}`);
+    client.say(
+      channel,
+      `${name}의 지능은 현재 ${int}%! ${AI[randomNum(0, AI.length - 1)]}`
+    );
   } else if (int >= 50) {
-    client.say(channel, `${name}의 지능은 현재 ${int}%! ${BI[randomNum(0, BI.length - 1)]}`);
+    client.say(
+      channel,
+      `${name}의 지능은 현재 ${int}%! ${BI[randomNum(0, BI.length - 1)]}`
+    );
   } else if (int >= 30) {
-    client.say(channel, `${name}의 지능은 현재 ${int}%! ${CI[randomNum(0, CI.length - 1)]}`);
+    client.say(
+      channel,
+      `${name}의 지능은 현재 ${int}%! ${CI[randomNum(0, CI.length - 1)]}`
+    );
   } else {
-    client.say(channel, `${name}의 지능은 현재 ${int}%! ${DI[randomNum(0, DI.length - 1)]}`);
+    client.say(
+      channel,
+      `${name}의 지능은 현재 ${int}%! ${DI[randomNum(0, DI.length - 1)]}`
+    );
   }
 }
-
 
 //Sing a song
 function Sing(channel, message, tags) {}
@@ -181,44 +190,49 @@ client.on("chat", function(channel, user, message, self) {
       if (duel == 0) {
         const list1 = [
           input + "님이 " + input2 + "님을 완전히 끝내버렸습니다!" ||
-          input + "님이 " + input2 + "님을 파괴했습니다!" ||
-          input + "님이 " + input2 + "님을 압도했습니다!"
+            input + "님이 " + input2 + "님을 파괴했습니다!" ||
+            input + "님이 " + input2 + "님을 압도했습니다!"
         ];
-        client.say(channel, `${list1}`)
+        client.say(channel, `${list1}`);
       } else if (duel == 1) {
         const list2 = [
           input2 + "님이 " + input + "님을 때려눕혔습니다!" ||
-          input2 + "님이 " + input + "님을 없애버렸습니다!"||
-          input2 + "님이 " + input + "님을 삭제했습니다!"
+            input2 + "님이 " + input + "님을 없애버렸습니다!" ||
+            input2 + "님이 " + input + "님을 삭제했습니다!"
         ];
-        client.say(channel, `${list2}`)
+        client.say(channel, `${list2}`);
       }
     }
   }
 });
 
-
 //check
-client.on("chat", function(channel, user, message, self) {
-if (message.toLowerCase() == '!joinqueue') {
-
-    if (!block[user['user-id']]) {
-            
-        client.say(channel, `@${user.username}, Joined The Queue!`);
-        queue.push(`${user.username}`);
-
-        block[user['user-id']] = true;
-
-        setTimeout(() => {
-            delete block[user['user-id']];
-        }, (60 * 10000));
-        
-    } else {
-        client.say(channel, `@${user.username} Please Wait Before Doing This Command Again`);
+const reputation = {};
+client.on("chat", function(channel, user, message, self, tags) {
+  let block = [];
+  let queue = [];
+  const checkuser = `@${tags.username}`
+  if (message === "!출석") {
+    if (!block.includes(user.username)) {
+      if (!(user in reputation)) {
+            reputation[user] = 1;
+        } else{
+        reputation[user]++;
     }
-}
-})
-
+      client.say(channel, `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석 `);
+      queue.push(user.username);
+      block.push(user.username);
+      setTimeout(() => {
+        block = block.filter(u => u !== user.username);
+      }, 60 * 10000);
+    } else {
+      client.say(
+        channel,
+        `@${user.username} Please Wait Before Doing This Command Again`
+      );
+    }
+  }
+});
 
 /*sing
 
