@@ -5,6 +5,10 @@ const clientSecret = 'YOUR_CLIENT_SECRET';
 
 const authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);
 
+const { ApiClient } = require('@twurple/api');
+
+const apiClient = new ApiClient({ authProvider });
+
 const tmi = require("tmi.js");
 
 // Define configuration options
