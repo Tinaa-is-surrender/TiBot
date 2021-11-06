@@ -1,13 +1,3 @@
-const { ClientCredentialsAuthProvider } = require('@twurple/auth');
-
-const clientId = '1xhywhgztxiv5iue6o68q0h0yskh9j';
-const clientSecret = '1nyjcnafmeqba8x0gtobsyw43f3dsq';
-
-const authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);
-
-const { ApiClient } = require('@twurple/api');
-
-const apiClient = new ApiClient({ authProvider });
 
 const tmi = require("tmi.js");
 
@@ -29,6 +19,7 @@ client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
 client.connect();
+
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -205,6 +196,30 @@ client.on("chat", function(channel, user, message, self) {
     }
   }
 });
+
+
+//check
+client.on("chat", function(channel, user, message, self) {
+if (message.toLowerCase() == '!joinqueue') {
+
+    if (!block[user['user-id']]) {
+            
+        client.say(channel, `@${user.username}, Joined The Queue!`);
+        queue.push(`${user.username}`);
+
+        block[user['user-id']] = true;
+
+        setTimeout(() => {
+            delete block[user['user-id']];
+        }, (60 * 10000));
+        
+    } else {
+        client.say(channel, `@${user.username} Please Wait Before Doing This Command Again`);
+    }
+}
+})
+
+
 /*sing
 
 client.on("chat", function(channel, user, message, self) {
