@@ -1,3 +1,10 @@
+const { ClientCredentialsAuthProvider } = require('@twurple/auth');
+
+const clientId = 'YOUR_CLIENT_ID';
+const clientSecret = 'YOUR_CLIENT_SECRET';
+
+const authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);
+
 const tmi = require("tmi.js");
 
 // Define configuration options
