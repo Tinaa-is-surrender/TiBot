@@ -10,7 +10,9 @@
     "express": "^4.17.1",
     "tmi.js": "^1.8.5",
     "url-parse": "^1.5.3",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "@twurple/api": "^5.0.8",
+    "@twurple/auth": "^5.0.8"
   },
   "engines": {
     "node": "8.x"
