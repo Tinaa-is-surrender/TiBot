@@ -1,7 +1,7 @@
 const { ClientCredentialsAuthProvider } = require('@twurple/auth');
 
-const clientId = 'YOUR_CLIENT_ID';
-const clientSecret = 'YOUR_CLIENT_SECRET';
+const clientId = '1xhywhgztxiv5iue6o68q0h0yskh9j';
+const clientSecret = '1nyjcnafmeqba8x0gtobsyw43f3dsq';
 
 const authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);
 
