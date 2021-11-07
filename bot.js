@@ -4,6 +4,9 @@ const ComfyJS = require("comfy.js");
 ComfyJS.Init( "tinaa_is_surrender" );
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
+  if (flags.customReward &&
+      extra.customRewardId === "asdf" )
+  }
   console.log(user, flags, message)
 }
 
@@ -283,9 +286,7 @@ client.on("chat", function(channel, user, message, self) {
 });*/
 
 //instant-name
-function points(user, message, flags, tags){
-  
-}
+
 
 
 
