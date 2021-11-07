@@ -18,7 +18,7 @@ client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
 client.connect();
-
+client.on()
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randNum;
@@ -272,6 +272,13 @@ client.on("chat", function(channel, user, message, self) {
     client.say(channel, '목록: ');
   }
 });*/
+
+//console.log
+
+
+
+
+
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
     return;
