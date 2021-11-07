@@ -1,14 +1,16 @@
 const tmi = require("tmi.js");
 
-const ComfyJS = require("comfy.js");
+/*const ComfyJS = require("comfy.js");
 ComfyJS.Init( "tinaa_is_surrender" );
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
   if (flags.customReward &&
-      extra.customRewardId === "asdf" )
+      extra.customRewardId === "") 
+      console.log(`${user} has used channel points`);
   }
-  console.log(user, flags, message)
-}
+//console.log( user, message);
+//document.querySelector( "#YAY" ).innertext = */
+
 
 
 // Define configuration options
