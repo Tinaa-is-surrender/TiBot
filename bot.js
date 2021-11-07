@@ -1,7 +1,7 @@
 const tmi = require("tmi.js");
 
 const ComfyJS = require("comfy.js");
-ComfyJS.Init( "MyTwitchChannel" );
+ComfyJS.Init( "tinaa_is_surrender" );
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
   console.log(user, message)
