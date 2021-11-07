@@ -5,7 +5,7 @@ ComfyJS.Init( "tinaa_is_surrender" );
 ComfyJS.Init(process.env.BOT_USERNAME, process.env.OAUTH_TOKEN);
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
-      console.log(user, message);
+      console.log(user, message)
 
   }
 //console.log( user, message);
