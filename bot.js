@@ -4,7 +4,7 @@ const ComfyJS = require("comfy.js");
 ComfyJS.Init( "tinaa_is_surrender" );
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
-  console.log(user, message)
+  console.log(user, flags, message)
 }
 
 
@@ -282,7 +282,10 @@ client.on("chat", function(channel, user, message, self) {
   }
 });*/
 
-//console.log
+//instant-name
+function points(user, message, flags, tags){
+  
+}
 
 
 
