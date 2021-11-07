@@ -1,6 +1,13 @@
 const tmi = require("tmi.js");
-var ComfyJS = require("comfy.js");
-ComfyJS.Init( process.env.BOT_USERNAME, process.env.OAUTH_TOKEN );
+
+const ComfyJS = require("comfy.js");
+ComfyJS.Init( "MyTwitchChannel" );
+
+ComfyJS.onChat = ( user, message, flags, self, extra ) => {
+  console.log(user, message)
+}
+
+
 // Define configuration options
 const opts = {
   identity: {
@@ -20,12 +27,6 @@ client.on("connected", onConnectedHandler);
 // Connect to Twitch:
 client.connect();
 
-ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
-  if( flags.broadcaster && command === "test" ) {
-    console.log( "!test was typed in chat" );
-  }
-}
-ComfyJS.Init( "tinaa_is_surrender" );
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
