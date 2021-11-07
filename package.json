@@ -11,10 +11,7 @@
     "tmi.js": "^1.8.5",
     "url-parse": "^1.5.3",
     "request": "^2.88.2",
-    "@twurple/api": "^5.0.8",
-    "@twurple/auth": "^5.0.8",
-    "@twurple/chat": "^5.0.8",
-    "@twurple/common": "^5.0.8"
+    "comfy.js": "^1.1.12"
   },
   "engines": {
     "node": "8.x"

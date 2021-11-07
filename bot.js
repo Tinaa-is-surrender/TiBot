@@ -1,5 +1,5 @@
 const tmi = require("tmi.js");
-
+var ComfyJS = require("comfy.js");
 // Define configuration options
 const opts = {
   identity: {
@@ -23,6 +23,11 @@ client.on('message', (channel, tags, message, self) => {
   console.log(channel, message, tags, self);
 });
 
+ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
+        if( flags.highlighted && command === "test" ) {
+          console.log( "!test was typed in chat" );
+        }
+      }
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -212,7 +217,7 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-client.on("message", (channel, tags, message, self) => {
+/*client.on("message", (channel, tags, message, self) => {
   console.log(`${tags["display-name"]}: ${message}`); 
 
   const reputation = {};
@@ -260,7 +265,7 @@ client.on("message", (channel, tags, message, self) => {
       `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석`
     );
   }
-}); 
+}); */
 
 /*sing
 
