@@ -4,9 +4,9 @@ const ComfyJS = require("comfy.js");
 ComfyJS.Init( "tinaa_is_surrender" );
 ComfyJS.Init(process.env.BOT_USERNAME, process.env.OAUTH_TOKEN);
 
-ComfyJS.onChat = ( user, message, flags, self, extra ) => {
-      console.log(user, message)
-
+ComfyJS.onChat = ( user, message, flags, command, extra ) => {
+      if (command === 'test')
+          ComfyJS.say('hello?')
   }
 //console.log( user, message);
 //document.querySelector( "#YAY" ).innertext = */
