@@ -18,7 +18,12 @@ client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
 client.connect();
-client.on()
+client.on('message', (channel, tags, message, self) => {
+  if (self) return;
+  console.log(channel, message, tags, self);
+});
+
+
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randNum;
@@ -207,7 +212,7 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-/*client.on("message", (channel, tags, message, self) => {
+client.on("message", (channel, tags, message, self) => {
   console.log(`${tags["display-name"]}: ${message}`); 
 
   const reputation = {};
@@ -255,7 +260,7 @@ client.on("chat", function(channel, user, message, self) {
       `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석`
     );
   }
-}); */
+}); 
 
 /*sing
 
