@@ -210,7 +210,12 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-
+const fishing = 0
+client.on("chat", function(channel, user, message, self) {
+  if (message.startWith("!추천")) {
+    fishing + 1
+  }
+})
 /*sing
 
 client.on("chat", function(channel, user, message, self) {
