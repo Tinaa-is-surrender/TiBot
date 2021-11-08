@@ -1,17 +1,14 @@
 const tmi = require("tmi.js");
 
 const ComfyJS = require("comfy.js");
-ComfyJS.Init( "tinaa_is_surrender" );
+ComfyJS.Init("tinaa_is_surrender");
 ComfyJS.Init(process.env.BOT_USERNAME, process.env.OAUTH_TOKEN);
 
-ComfyJS.onChat = ( user, message, flags, command, extra ) => {
-      if (command === 'test')
-          ComfyJS.say('hello?')
-  }
+ComfyJS.onChat = (user, message, flags, command, extra) => {
+  if (command === "test") ComfyJS.say("hello?");
+};
 //console.log( user, message);
 //document.querySelector( "#YAY" ).innertext = */
-
-
 
 // Define configuration options
 const opts = {
@@ -31,7 +28,6 @@ client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
 client.connect();
-
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -221,8 +217,8 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-/*client.on("message", (channel, tags, message, self) => {
-  console.log(`${tags["display-name"]}: ${message}`); 
+client.on("message", (channel, tags, message, self) => {
+  console.log(`${tags["display-name"]}: ${message}`);
 
   const reputation = {};
 
@@ -248,28 +244,10 @@ client.on("chat", function(channel, user, message, self) {
     return;
   }
 
-  
-
   if (self || !message.startsWith("!")) {
     return;
   }
-
-  const args = message.slice(1).split(" ");
-  const commandName = args.shift().toLowerCase();
-
-  if (commandName === "출석") {
-    const user = `@${tags.username}`;
-    if (!(user in reputation)) {
-      reputation[user] = 1;
-    } else {
-      reputation[user]++;
-    }
-    client.say(
-      channel,
-      `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석`
-    );
-  }
-}); */
+});
 
 /*sing
 
@@ -288,15 +266,6 @@ client.on("chat", function(channel, user, message, self) {
 });*/
 
 //fishing
-
-client.on("chat", function(channel, user, message, self) {
-  const fish = {};
-})
-  
-
-
-
-
 
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
