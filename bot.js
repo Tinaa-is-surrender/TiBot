@@ -218,19 +218,15 @@ client.on("chat", function(channel, user, message, self) {
 
 //check
 client.on("message", (channel, tags, message, self) => {
-  console.log(`${tags["display-name"]}: ${message}`);
+  console.log(`${tags["display-name"]}: ${message}`); //
 
   const reputation = {};
-
   const reputationRegex = /(\+\+|--)/g;
-
   if (reputationRegex.test(message)) {
     const [user, operator] = message.split(reputationRegex);
-
     if (!(user in reputation)) {
       reputation[user] = 0;
     }
-
     if (operator === "++") {
       reputation[user]++;
     } else {
@@ -241,14 +237,26 @@ client.on("message", (channel, tags, message, self) => {
       channel,
       `@${tags.username},${user} 당신의 점수는 ${reputation[user]}`
     );
+    const commandName = message.trim();
+    if(commandName='출석'){
+        const user =  `@${tags.username}`;
+        if (!(user in reputation)) {
+            reputation[user] = 1;
+        }
+        else{
+        reputation[user]++;
+    }
+        client.say(channel, `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석`);
+    }
     return;
   }
+
+  //
 
   if (self || !message.startsWith("!")) {
     return;
   }
 });
-
 /*sing
 
 client.on("chat", function(channel, user, message, self) {
