@@ -210,52 +210,7 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-client.on("message", (channel, tags, message, self) => {
-  console.log(`${tags["display-name"]}: ${message}`);
 
-  const reputation = {};
-  const reputationRegex = /(\+\+|--)/g;
-
-  if (reputationRegex.test(message)) {
-    const [user, operator] = message.split(reputationRegex);
-
-    if (!(user in reputation)) {
-      reputation[user] = 0;
-    }
-
-    if (operator === "++") {
-      reputation[user]++;
-    } else {
-      reputation[user]--;
-    }
-
-    client.say(
-      channel,
-      `@${tags.username},${user} 당신의 점수는 ${reputation[user]}`
-    );
-    return;
-  }
-
-  if (self || !message.startsWith("!")) {
-    return;
-  }
-
-  const args = message.slice(1).split(" ");
-  const command = args.shift().toLowerCase();
-
-  if (command === "출석") {
-    const user = `@${tags.username}`;
-    if (!(user in reputation)) {
-      reputation[user] = 1;
-    } else {
-      reputation[user]++;
-    }
-    client.say(
-      channel,
-      `@${tags.username}님은 오늘로  ${reputation[user]}번째 출석`
-    );
-  }
-});
 /*sing
 
 client.on("chat", function(channel, user, message, self) {
