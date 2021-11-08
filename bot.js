@@ -176,7 +176,7 @@ function gatcha(channel, name) {
     client.say(channel, `/me [Rare] ${R[randomNum(0, R.length - 1)]}${name}`);
   } else if (ran <= 875) {
     client.say(channel, `/me [Epic] ${E[randomNum(0, E.length - 1)]}${name}`);
-  } else if (ran <= 950) {
+  } else if (ran <= 975) {
     client.say(
       channel,
       `/me [Legendary] ✨${L[randomNum(0, L.length - 1)]}${name}`
