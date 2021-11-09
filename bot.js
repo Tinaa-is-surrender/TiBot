@@ -218,13 +218,7 @@ client.on("chat", function(channel, user, message, self) {
   }
 })
 //stack
-var k = 0
-client.on("chat", function(channel, user, message, self, tags) {
-  if (message.startsWith("!스택")) {
-    k = k + 1
-    client.say(channel, `@${tags.username}, ${k}스택이에요`)
-  }
-})
+
 /*sing
 
 client.on("chat", function(channel, user, message, self) {
