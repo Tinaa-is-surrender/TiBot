@@ -217,6 +217,14 @@ client.on("chat", function(channel, user, message, self) {
     client.say(channel, `${fishing}번째 물고기가 되셨어요`)
   }
 })
+//stack
+var k = 0
+client.on("chat", function(channel, user, message, self, tags) {
+  if (message.startsWith("!스택")) {
+    k = k + 1
+    client.say(channel, `@${tags.username}, ${k}스택이에요`)
+  }
+})
 /*sing
 
 client.on("chat", function(channel, user, message, self) {

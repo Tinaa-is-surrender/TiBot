@@ -1,5 +1,4 @@
 dependencies:
-  comfy.js: 1.1.12
   express: 4.17.1
   request: 2.88.2
   tmi.js: 1.8.5
@@ -92,13 +91,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
-  /comfy.js/1.1.12:
-    dependencies:
-      node-fetch: 2.6.6
-      tmi.js: 1.8.5
-    dev: false
-    resolution:
-      integrity: sha512-ZCiTZSLsSBu3zToURJezllwckff3XRCCS01z5Oat747rX9g6gU4PtCEJ7z7vD5CeIeXH2NrN3HvmMkPcjTLCsw==
   /content-disposition/0.5.3:
     dependencies:
       safe-buffer: 5.1.2
@@ -458,14 +450,6 @@ packages:
       node: 4.x || >=6.0.0
     resolution:
       integrity: sha512-mmlIVHJEu5rnIxgEgez6b9GgWXbkZj5YZ7fx+2r94a2E+Uirsp6HsPTPlomfdHtpt/B0cdKviwkoaM6pyvUOpQ==
-  /node-fetch/2.6.6:
-    dependencies:
-      whatwg-url: 5.0.0
-    dev: false
-    engines:
-      node: 4.x || >=6.0.0
-    resolution:
-      integrity: sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
   /oauth-sign/0.9.0:
     dev: false
     resolution:
@@ -764,7 +748,6 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  comfy.js: ^1.1.12
   express: ^4.17.1
   request: ^2.88.2
   tmi.js: ^1.8.5
