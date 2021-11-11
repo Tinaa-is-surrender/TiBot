@@ -217,7 +217,12 @@ client.on("chat", function(channel, user, message, self) {
     client.say(channel, `${fishing}번째 물고기가 되셨어요`)
   }
 })
-//stack
+//fire
+client.on("chat", function(channel, user, message, self) {
+  if (message.startsWith("!자폭")) {
+    
+  }
+})
 
 /*sing
 
