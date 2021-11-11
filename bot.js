@@ -1,6 +1,22 @@
 const tmi = require("tmi.js");
 
-//hearthstone
+//
+function Request(valuename)
+{
+    var rtnval;
+    var nowAddress = unescape(location.href);
+    var parameters = new Array();
+    parameters = (nowAddress.slice(nowAddress.indexOf("?")+1,nowAddress.length)).split("&");
+    for(var i = 0 ; i < parameters.length ; i++){
+        if(parameters[i].split("=")[0] == valuename){
+            rtnval = parameters[i].split("=")[1];
+            if(rtnval == undefined || rtnval == null){
+                rtnval = "";
+            }
+            return rtnval;
+        }
+    }
+}
 
 // Define configuration options
 const opts = {
@@ -34,6 +50,7 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!카드")) {
+    var card = message.split(" ")[1];
     const request = require("request");
     const options = {
       method: "GET",
@@ -51,10 +68,11 @@ client.on("chat", function(channel, user, message, self) {
 
       console.log(body);
     });
-
-    var card = message.split(" ")[1];
-    if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
-    else client.say(channel, ``);
+    if (card == null) 
+      client.say(channel, "검색할 카드를 입력해주세요");
+    else 
+      client.say(channel, `${card}에 대한 정보를 찾았어요!`);
+      client.say(channel, `dd`)
   }
 });
 
