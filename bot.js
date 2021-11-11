@@ -44,17 +44,17 @@ client.on("chat", function(channel, user, message, self) {
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
-      }
+      } 
     };
 
     axios
       .request(options)
       .then(function(response) {
         console.log(response.data);
+      var 
       })
       .catch(function(error) {
         console.error(error);
-      
       });
     if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
     else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
