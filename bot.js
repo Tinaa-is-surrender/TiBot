@@ -1,22 +1,6 @@
 const tmi = require("tmi.js");
 
 //
-function Request(valuename)
-{
-    var rtnval;
-    var nowAddress = unescape(location.href);
-    var parameters = new Array();
-    parameters = (nowAddress.slice(nowAddress.indexOf("?")+1,nowAddress.length)).split("&");
-    for(var i = 0 ; i < parameters.length ; i++){
-        if(parameters[i].split("=")[0] == valuename){
-            rtnval = parameters[i].split("=")[1];
-            if(rtnval == undefined || rtnval == null){
-                rtnval = "";
-            }
-            return rtnval;
-        }
-    }
-}
 
 // Define configuration options
 const opts = {
@@ -50,29 +34,29 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!카드")) {
+    var axios = require("axios").default;
     var card = message.split(" ")[1];
-    const request = require("request");
-    const options = {
+    var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
-      qs: { collectible: "1", locale: "koKR" },
+      params: { collectible: "1", locale: "koKR" },
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
-        "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac",
-        useQueryString: true
+        "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
       }
     };
 
-    request(options, function(error, response, body) {
-      if (error) throw new Error(error);
-
-      console.log(body);
-    });
-    if (card == null) 
-      client.say(channel, "검색할 카드를 입력해주세요");
-    else 
-      client.say(channel, `${card}에 대한 정보를 찾았어요!`);
-      client.say(channel, `dd`)
+    axios
+      .request(options)
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+    if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
+    else client.say(channel, `${card}에 대한 정보를 찾았어요!`);
+    client.say(channel, `네요`);
   }
 });
 
