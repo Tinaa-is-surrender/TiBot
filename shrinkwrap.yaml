@@ -1,6 +1,7 @@
 dependencies:
   axios: 0.24.0
   express: 4.17.1
+  query-string: 7.0.1
   request: 2.88.2
   tmi.js: 1.8.5
   url-parse: 1.5.3
@@ -140,6 +141,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
+  /decode-uri-component/0.2.0:
+    dev: false
+    engines:
+      node: '>=0.10'
+    resolution:
+      integrity: sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
   /delayed-stream/1.0.0:
     dev: false
     engines:
@@ -244,6 +251,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
+  /filter-obj/1.1.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-mzERErxsYSehbgFsbF1/GeCAXFs=
   /finalhandler/1.1.2:
     dependencies:
       debug: 2.6.9
@@ -520,6 +533,17 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
+  /query-string/7.0.1:
+    dependencies:
+      decode-uri-component: 0.2.0
+      filter-obj: 1.1.0
+      split-on-first: 1.1.0
+      strict-uri-encode: 2.0.0
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-uIw3iRvHnk9to1blJCG3BTc+Ro56CBowJXKmNNAm3RulvPBzWLRqKSiiDk+IplJhsydwtuNMHi8UGQFcCLVfkA==
   /querystringify/2.2.0:
     dev: false
     resolution:
@@ -620,6 +644,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
+  /split-on-first/1.1.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -643,6 +673,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+  /strict-uri-encode/2.0.0:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
   /tmi.js/1.8.5:
     dependencies:
       node-fetch: 2.6.5
@@ -763,6 +799,7 @@ shrinkwrapVersion: 3
 specifiers:
   axios: ^0.24.0
   express: ^4.17.1
+  query-string: ^7.0.1
   request: ^2.88.2
   tmi.js: ^1.8.5
   url-parse: ^1.5.3
