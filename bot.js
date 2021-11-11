@@ -35,7 +35,7 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!카드")) {
     var axios = require("axios").default;
-    var cardname = message.split(" ")[1];
+    var cardname = message.slice(4);
     var card = encodeURIComponent(cardname)
     var options = {
       method: "GET",
@@ -54,6 +54,7 @@ client.on("chat", function(channel, user, message, self) {
       })
       .catch(function(error) {
         console.error(error);
+      
       });
     if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
     else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
