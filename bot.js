@@ -2,25 +2,6 @@ const tmi = require("tmi.js");
 
 //hearthstone
 
-const request = require('request');
-
-const options = {
-  method: 'GET',
-  url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/moonfang`,
-  qs: {collectible: '1', locale: 'koKR'},
-  headers: {
-    'x-rapidapi-host': 'omgvamp-hearthstone-v1.p.rapidapi.com',
-    'x-rapidapi-key': '5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac',
-    useQueryString: true
-  }
-};
-
-request(options, function (error, response, body) {
-	if (error) throw new Error(error);
-
-	String.fromCharCode(console.log(body));
-});
-
 // Define configuration options
 const opts = {
   identity: {
@@ -49,7 +30,33 @@ var countDownDate = new Date("July 5, 2021 00:00:00").getTime();
 var now = new Date().getTime();
 var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
-//url parsing
+// hearthstone
+
+client.on("chat", function(channel, user, message, self) {
+  if (message.startsWith("!카드")) {
+    const request = require("request");
+    const options = {
+      method: "GET",
+      url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
+      qs: { collectible: "1", locale: "koKR" },
+      headers: {
+        "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
+        "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac",
+        useQueryString: true
+      }
+    };
+
+    request(options, function(error, response, body) {
+      if (error) throw new Error(error);
+
+      console.log(body);
+    });
+
+    var card = message.split(" ")[1];
+    if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
+    else client.say(channel, ``);
+  }
+});
 
 //inteligence
 function inteligence(channel) {
@@ -228,19 +235,18 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-var fishing = 0
+var fishing = 0;
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!추천")) {
-    fishing = fishing + 1
-    client.say(channel, `${fishing}번째 물고기가 되셨어요`)
+    fishing = fishing + 1;
+    client.say(channel, `${fishing}번째 물고기가 되셨어요`);
   }
-})
+});
 //fire
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!자폭")) {
-    
   }
-})
+});
 
 /*sing
 
