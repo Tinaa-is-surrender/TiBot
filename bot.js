@@ -1,7 +1,25 @@
 const tmi = require("tmi.js");
 
+//hearthstone
 
+const request = require('request');
 
+const options = {
+  method: 'GET',
+  url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/ysera',
+  qs: {collectible: '1', locale: 'koKR'},
+  headers: {
+    'x-rapidapi-host': 'omgvamp-hearthstone-v1.p.rapidapi.com',
+    'x-rapidapi-key': '5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac',
+    useQueryString: true
+  }
+};
+
+request(options, function (error, response, body) {
+	if (error) throw new Error(error);
+
+	console.log(body);
+});
 
 // Define configuration options
 const opts = {
