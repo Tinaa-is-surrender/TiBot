@@ -6,7 +6,7 @@ const request = require('request');
 
 const options = {
   method: 'GET',
-  url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/ysera',
+  url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/moonfang`,
   qs: {collectible: '1', locale: 'koKR'},
   headers: {
     'x-rapidapi-host': 'omgvamp-hearthstone-v1.p.rapidapi.com',
@@ -18,7 +18,7 @@ const options = {
 request(options, function (error, response, body) {
 	if (error) throw new Error(error);
 
-	console.log(body);
+	String.fromCharCode(console.log(body));
 });
 
 // Define configuration options
