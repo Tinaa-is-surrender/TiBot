@@ -57,7 +57,7 @@ client.on("chat", function(channel, user, message, self) {
       });
     if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
     else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
-    client.say(channel, `네요`);
+    client.say(channel, `오..`);
   }
 });
 
