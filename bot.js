@@ -1,12 +1,7 @@
 const tmi = require("tmi.js");
 
 //getParameter
-function getParameter(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+
 // Define configuration options
 const opts = {
   identity: {
@@ -41,8 +36,8 @@ client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!카드")) {
     var axios = require("axios").default;
     var cardname = message.slice(4);
-    var card = encodeURIComponent(cardname)
-    var cardcost
+    var card = encodeURIComponent(cardname);
+    var cardcost;
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
@@ -50,10 +45,8 @@ client.on("chat", function(channel, user, message, self) {
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
-      } 
+      }
     };
-    var cost = getParameter("cost");
-
     axios
       .request(options)
       .then(function(response) {
@@ -64,7 +57,7 @@ client.on("chat", function(channel, user, message, self) {
       });
     if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
     else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
-    client.say(channel, `${cost}네요`);
+    client.say(channel, `네요`);
   }
 });
 
