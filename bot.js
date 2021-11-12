@@ -40,8 +40,7 @@ client.on("chat", function(channel, user, message, self) {
     var cardcost;
     var options = {
       method: "GET",
-      url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
-      params: { collectible: "1", locale: "koKR" },
+      url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}?collectible=1&locale=koKR`,
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
@@ -51,8 +50,7 @@ client.on("chat", function(channel, user, message, self) {
       .request(options)
       .then(function(response) {
         console.log(response.data);
-        var K = response.data
-        client.say(channel, `${K}`);
+        client.say(channel, `${cost}`);
       })
       .catch(function(error) {
         console.error(error);
