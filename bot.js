@@ -33,15 +33,15 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 // hearthstone
 
 client.on("chat", function(channel, user, message, self) {
-  if (message.startsWith("!카드")) {
+  if (message.startsWith("!card")) {
     var axios = require("axios").default;
-    var cardname = message.slice(4);
+    var cardname = message.slice(6);
     var card = encodeURIComponent(cardname);
     var cardcost;
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
-      params: { collectible: "1", locale: "koKR" },
+      params: { collectible: "1", locale: "enUS" },
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
@@ -55,9 +55,11 @@ client.on("chat", function(channel, user, message, self) {
       .catch(function(error) {
         console.error(error);
       });
-    if (card == null) client.say(channel, "검색할 카드를 입력해주세요");
-    else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
-    client.say(channel, `[카드설명]`);
+    if (card == null)
+      client.say(channel, "input a cardname please!");
+    else
+      client.say(channel, `we found this: ${cardname}`);
+      client.say(channel, ``);
   }
 });
 
