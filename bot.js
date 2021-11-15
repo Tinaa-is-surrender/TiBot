@@ -32,7 +32,7 @@ var streamperiod = now - countDownDate;
 var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 // hearthstone
 
-client.on("chat", function(channel, user, message, self) {
+/*client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!카드")) {
     var axios = require("axios").default;
     var cardname = message.slice(4);
@@ -59,7 +59,13 @@ client.on("chat", function(channel, user, message, self) {
     else client.say(channel, `${cardname}에 대한 정보를 찾았어요!`);
     client.say(channel, `오..`);
   }
-});
+});*/
+
+client.on("chat", function(channel, user, message, self) {
+  if (message.startsWith("!카드")) {
+    
+  }
+})
 
 //inteligence
 function inteligence(channel) {
