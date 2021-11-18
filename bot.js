@@ -250,7 +250,7 @@ client.on("chat", function(channel, user, message, self) {
 });
 //fire
 client.on("chat", function(channel, user, message, self) {
-  if (message.startsWith("!자폭")) {
+  if (message.startsWith("펑")) {
   }
 });
 
@@ -281,8 +281,8 @@ function onMessageHandler(channel, tags, message, self) {
   const commandName = message.trim();
   const arr = commandName.split(" ");
   //client.say(channel, commandName);
-  if (commandName == "!티봇 상태") {
-    client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
+  if (commandName == "티봇 안녕") {
+    client.say(channel, `@${tags.username}, 안녕하세요에요`);
   } else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
