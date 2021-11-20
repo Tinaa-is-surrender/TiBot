@@ -35,7 +35,7 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!card")) {
     var axios = require("axios").default;
-    var cardname = message.split('/')[1];
+    var cardname = message.slice(5);
     var card = encodeURIComponent(cardname);
     var cardcost;
     var options = {
@@ -56,7 +56,7 @@ client.on("chat", function(channel, user, message, self) {
         console.error(error);
       });
     if (cardname == null)
-      client.say(channel, "input a cardname please! eg. [!card/수정 예언자]");
+      client.say(channel, "input a cardname please! eg. [!card 수정 예언자]");
     else
       client.say(channel, `we found this: ${cardname}`);
       client.say(channel, ``);
