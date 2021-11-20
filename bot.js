@@ -35,7 +35,7 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!card")) {
     var axios = require("axios").default;
-    var cardname = message.slice(5);
+    var cardname = message.slice(6);
     var card = encodeURIComponent(cardname);
     var cardcost;
     var options = {
@@ -55,8 +55,8 @@ client.on("chat", function(channel, user, message, self) {
       .catch(function(error) {
         console.error(error);
       });
-    if (cardname == null)
-      client.say(channel, "input a cardname please! eg. [!card 수정 예언자]");
+    if (card == null)
+      client.say(channel, "input a cardname please!");
     else
       client.say(channel, `we found this: ${cardname}`);
       client.say(channel, ``);
@@ -250,7 +250,7 @@ client.on("chat", function(channel, user, message, self) {
 });
 //fire
 client.on("chat", function(channel, user, message, self) {
-  if (message.startsWith("펑")) {
+  if (message.startsWith("!자폭")) {
   }
 });
 
@@ -281,8 +281,8 @@ function onMessageHandler(channel, tags, message, self) {
   const commandName = message.trim();
   const arr = commandName.split(" ");
   //client.say(channel, commandName);
-  if (commandName == "티봇 안녕") {
-    client.say(channel, `@${tags.username}, 안녕하세요에요`);
+  if (commandName == "!티봇 상태") {
+    client.say(channel, `@${tags.username}, 현재 정상 작동중입니다.`);
   } else if (commandName == "!트게더") {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
