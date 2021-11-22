@@ -37,11 +37,19 @@ client.on("chat", function(channel, user, message, self) {
     var axios = require("axios").default;
     var cardname = message.slice(6);
     var card = encodeURIComponent(cardname);
+    
     var cardcost;
+    var attack;
+    var health;
+    var text;
+    var flavor;
+    var rarity;
+    var type;
+    
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
-      params: { collectible: "1", locale: "enUS" },
+      params: { collectible: "1", locale: "koKR" },
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
