@@ -37,7 +37,7 @@ client.on("chat", function(channel, user, message, self) {
     var axios = require("axios").default;
     var cardname = message.slice(6);
     var card = encodeURIComponent(cardname);
-    
+
     var cardcost;
     var attack;
     var health;
@@ -45,7 +45,7 @@ client.on("chat", function(channel, user, message, self) {
     var flavor;
     var rarity;
     var type;
-    
+
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
@@ -57,22 +57,20 @@ client.on("chat", function(channel, user, message, self) {
     };
     axios
       .request(options)
-      .then(function(response) {
-        console.log(response.data);
-
+      .then(function (response) {
+        return response.data;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error(error);
       });
-    
+      
     if (card == null)
-      client.say(channel, "input a cardname please!");
+      client.say(channel, `pls input cardname`);
     else
       client.say(channel, `we found this: ${cardname}`);
       client.say(channel, ``);
   }
 });
-
 
 //inteligence
 function inteligence(channel) {
