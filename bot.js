@@ -59,10 +59,12 @@ client.on("chat", function(channel, user, message, self) {
       .request(options)
       .then(function(response) {
         console.log(response.data);
+
       })
       .catch(function(error) {
         console.error(error);
       });
+    
     if (card == null)
       client.say(channel, "input a cardname please!");
     else
