@@ -260,19 +260,10 @@ client.on("chat", function(channel, user, message, self) {
 client.on("chat", function(channel, user, message, self) {
   const songlist = [];
   const inputsong = message.split(" ")[1];
-  localStorage.setItem("inputsong");
-  if (message.startsWith("!추가")) {
-    client.say(channel, `${inputsong}이 추가되었습니다.`);
-    songlist.push("inputsong");
-    console.log(songlist)
-  } else if (message.startsWith("!목록")) {
-    client.say(channel, `현재 목록: ${inputsong.join()}이 대기중입니다.`);
-  } else if (message.startsWith("!삭제")) {
-    localStorage.removeItem("inputsong");
-    client.say("모두 삭제되었습니다.");
-    const songlist = [];
+  function savesonglist(){
+    localStorage.setItem
   }
-});
+})
 //fishing
 
 function onMessageHandler(channel, tags, message, self) {
