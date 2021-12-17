@@ -260,8 +260,14 @@ client.on("chat", function(channel, user, message, self) {
 client.on("chat", function(channel, user, message, self) {
   const songlist = [];
   const inputsong = message.split(" ")[1];
+  songlist.push(inputsong);
   function savesonglist(){
-    localStorage.setItem
+    localStorage.setItem(inputsong, JSON.stringify(songlist))
+  }
+  function deletesonglist(){
+    localStorage.clear()
+    const deletedsong = songlist.pop()
+    client.say(channel, `[${deletedsong}]이 삭제되었습니다!`)
   }
 })
 //fishing
