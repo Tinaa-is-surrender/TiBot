@@ -1,5 +1,6 @@
 const tmi = require("tmi.js");
-var axios = require("axios").default;
+const axios = require("axios").default;
+const localStorage = require('localStorage')
 //getParameter
 
 // Define configuration options
@@ -263,8 +264,9 @@ client.on("chat", function(channel, user, message, self) {
   if (message.startsWith("!추가")) {
     client.say(channel, `${inputsong}이 추가되었습니다.`);
     songlist.push("inputsong");
+    console.log(songlist)
   } else if (message.startsWith("!목록")) {
-    client.say(channel, `현재 목록: ${inputsong}이 대기중입니다.`);
+    client.say(channel, `현재 목록: ${inputsong.join()}이 대기중입니다.`);
   } else if (message.startsWith("!삭제")) {
     localStorage.removeItem("inputsong");
     client.say("모두 삭제되었습니다.");
