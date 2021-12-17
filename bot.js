@@ -57,18 +57,16 @@ client.on("chat", function(channel, user, message, self) {
     };
     axios
       .request(options)
-      .then(function (response) {
+      .then(function(response) {
         return response.data;
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.error(error);
       });
-      
-    if (card == null)
-      client.say(channel, `pls input cardname`);
-    else
-      client.say(channel, `we found this: ${cardname}`);
-      client.say(channel, ``);
+
+    if (card == null) client.say(channel, `pls input cardname`);
+    else client.say(channel, `we found this: ${cardname}`);
+    client.say(channel, ``);
   }
 });
 
@@ -262,22 +260,19 @@ client.on("chat", function(channel, user, message, self) {
   }
 });
 
-/*sing
-
 client.on("chat", function(channel, user, message, self) {
-  var songlist = new Array();
-  if (message.startsWith("!노래 추가")) {
-    var songs = message.split(" ")[2];
+  const songlist = [];
+  const inputsong = message.split(" ")[1];
+  localStorage.setItem("inputsong");
+  if (message.startsWith("!추가")) {
+    client.say(channel, `${inputsong}이 추가되었습니다.`);
+  } else if (message.startsWith("!목록")) {
+    client.say(channel, `현재 목록: ${inputsong}이 대기중입니다.`);
+  } else if (message.startsWith("!삭제")) {
+    localStorage.removeItem("inputsong");
+    client.say("삭제되었습니다.");
   }
-  else if (message.startsWith("!노래 초기화")) {
-    var songlist = new Array();
-    client.say(channel, '목록이 초기화 되었습니다.')
-  }
-  else if (message.startsWith("!노래 목록")){
-    client.say(channel, '목록: ');
-  }
-});*/
-
+});
 //fishing
 
 function onMessageHandler(channel, tags, message, self) {
