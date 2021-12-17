@@ -249,8 +249,14 @@ client.on("chat", function(channel, user, message, self) {
 
 //check
 localStorage.setItem("num");
+const num = 0
 client.on("chat", function(channel, user, message, self) {
-  if(localStorage.getItem("num"))
+  if(localStorage.getItem("num") === null){
+    localStorage.setItem("num", 1)
+  }
+  else if(localStorage.getitem("num") !== null){
+    const newNumber = num + 1
+    localStorage.setItem("num", newNumber)
   }
 });
 //songs
