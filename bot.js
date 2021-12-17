@@ -248,11 +248,9 @@ client.on("chat", function(channel, user, message, self) {
 });
 
 //check
-var fishing = 0;
+localStorage.setItem("num");
 client.on("chat", function(channel, user, message, self) {
-  if (message.startsWith("!추천")) {
-    fishing = fishing + 1;
-    client.say(channel, `${fishing}번째 물고기가 되셨어요`);
+  if(localStorage.getItem("num"))
   }
 });
 //songs
@@ -263,13 +261,23 @@ client.on("chat", function(channel, user, message, self) {
   songlist.push(inputsong);
   function savesonglist(){
     localStorage.setItem(inputsong, JSON.stringify(songlist))
+    client.say("")
   }
   function deletesonglist(){
     localStorage.clear()
     const deletedsong = songlist.pop()
     client.say(channel, `[${deletedsong}]이 삭제되었습니다!`)
   }
-})
+  if(message.startsWith("!추가")){
+      savesonglist()
+    }
+  else if(message.startsWith("!목록")){
+    
+  }
+  else if(message.startsWith("!삭제")){
+    deletesonglist();
+  }
+  })
 //fishing
 
 function onMessageHandler(channel, tags, message, self) {
