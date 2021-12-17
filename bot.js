@@ -254,11 +254,7 @@ client.on("chat", function(channel, user, message, self) {
     client.say(channel, `${fishing}번째 물고기가 되셨어요`);
   }
 });
-//fire
-client.on("chat", function(channel, user, message, self) {
-  if (message.startsWith("!자폭")) {
-  }
-});
+//songs
 
 client.on("chat", function(channel, user, message, self) {
   const songlist = [];
@@ -266,11 +262,13 @@ client.on("chat", function(channel, user, message, self) {
   localStorage.setItem("inputsong");
   if (message.startsWith("!추가")) {
     client.say(channel, `${inputsong}이 추가되었습니다.`);
+    songlist.push("inputsong");
   } else if (message.startsWith("!목록")) {
     client.say(channel, `현재 목록: ${inputsong}이 대기중입니다.`);
   } else if (message.startsWith("!삭제")) {
     localStorage.removeItem("inputsong");
-    client.say("삭제되었습니다.");
+    client.say("모두 삭제되었습니다.");
+    const songlist = [];
   }
 });
 //fishing
