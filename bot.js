@@ -80,29 +80,30 @@ client.on("chat", function(channel, user, message, self) {
         const BetterCardText5 = BetterCardText4.replace(/\//gi, '')
         const BetterCardText6 = BetterCardText5.replace(/b/gi, '')
         const BetterCardText7 = BetterCardText6.replace(/\_/gi, ' ')
-        console.log(BetterCardText7);
+        const BetterCardText8 = BetterCardText7.replace(/\$/gi, '')
+        console.log(BetterCardText8);
       
       
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-      client.say(channel, `${BetterCardText7}`);
+      client.say(channel, `${BetterCardText8}`);
       } else if(cardType === "Spell" && cardSpellSchool === undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}`);
-        client.say(channel, `${BetterCardText7}`);
+        client.say(channel, `${BetterCardText8}`);
       } else if(cardType ==="Spell" && cardSpellSchool !== undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
-        client.say(channel, `${BetterCardText7}`);
+        client.say(channel, `${BetterCardText8}`);
       } else if (cardType === "Hero"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 방어도: ${cardArmor}`);
-        client.say(channel, `${BetterCardText7}`);
+        client.say(channel, `${BetterCardText8}`);
       } else if (cardType === "Weapon"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
-        client.say(channel, `${BetterCardText7}`);
+        client.say(channel, `${BetterCardText8}`);
       }
   
     
@@ -325,9 +326,7 @@ function onMessageHandler(channel, tags, message, self) {
   }
 }
 
-client.on("connected", (address, port) => {
-    client.say("ㅇㅇ")
-});
+
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
