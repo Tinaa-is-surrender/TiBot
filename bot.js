@@ -1,6 +1,6 @@
 const tmi = require("tmi.js");
 const axios = require("axios").default;
-const localStorage = require('localStorage')
+const localStorage = require("localStorage");
 //getParameter
 
 // Define configuration options
@@ -50,36 +50,45 @@ client.on("chat", function(channel, user, message, self) {
     axios
       .request(options)
       .then(function(response) {
-        
-        const cardInfo = new Object(response.data)
+        const cardInfo = new Object(response.data);
         const cardKey = Object.keys(cardInfo);
         const cardValues = Object.values(cardInfo);
-        const key = '0';
-        const cardInfoKey = cardInfo[key]
-        console.log(cardInfo)
-          const cardName = cardInfoKey.name
-          const cardCardSet = cardInfoKey.cardSet
-          const cardType = cardInfoKey.type
-          const cardRarity = cardInfoKey.rarity
-          const cardCost = cardInfoKey.cost
-          const cardText = cardInfoKey.text
-          const cardFlavor = cardInfoKey.flavor
-          const cardPlayerClass = cardInfoKey.playerClass
-          const cardHealth = cardInfoKey.health
-          const cardAttack = cardInfoKey.attack
-          if(cardRarity === 'Legendary') {
-            client.say(channel, `${cardName}, ${cardCardSet} 확장팩의 ${KoPlayerClass} 전설 카드.`)
-            client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`)
-            client.say(channel, ``)
-          }
-        
-      
+        const key = "0";
+        const cardInfoKey = cardInfo[key];
+        console.log(cardInfo);
+        const cardName = cardInfoKey.name;
+        const cardCardSet = cardInfoKey.cardSet;
+        const cardType = cardInfoKey.type;
+        const cardRarity = cardInfoKey.rarity;
+        const cardCost = cardInfoKey.cost;
+        const cardText = cardInfoKey.text;
+        const cardFlavor = cardInfoKey.flavor;
+        const cardPlayerClass = cardInfoKey.playerClass;
+        const cardHealth = cardInfoKey.health;
+        const cardAttack = cardInfoKey.attack;
+        if (cardRarity === "Legendary") {
+          const KoRarity = "전설";
+        } else if (cardRarity === "Epic") {
+          const KoRarity = "특급";
+        } else if (cardRarity === "Rare") {
+          const KoRarity = "희귀";
+        } else if (cardRarity === "common") {
+          const KoRarity = "일반";
+        }
+
+        client.say(
+          channel,
+          `${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${KoRarity} 카드.`
+        );
+        client.say(
+          channel,
+          `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`
+        );
+        client.say(channel, `${cardText}`);
       })
       .catch(function(error) {
         console.error(error);
       });
-
-    
   }
 });
 
