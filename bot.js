@@ -66,20 +66,37 @@ client.on("chat", function(channel, user, message, self) {
         const cardPlayerClass = cardInfoKey.playerClass;
         const cardHealth = cardInfoKey.health;
         const cardAttack = cardInfoKey.attack;
+        const cardSpellSchool = cardInfoKey.spellSchool;
+        const cardArmor = cardInfoKey.armor;
+        const cardDurability = cardInfoKey.durability;
       
-        
+        const BetterCardText = cardText.replace(/\/b<>/gi)
+        console.log(BetterCardText);
       
-      
-      console.log(KoCardRarity)
-      
+      if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
-      
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-      
       client.say(channel, `${cardText}`);
-      })
+      } else if(cardType === "Spell"){
+        client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+        client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
+        client.say(channel, `${cardText}`);
+      } else if (cardType === "Hero"){
+        client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+        client.say(channel, `마나: ${cardCost}, 방어도: ${cardArmor}`);
+        client.say(channel, `${cardText}`);
+      } else if (cardType === "Weapon"){
+        client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+        client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
+        client.say(channel, `${cardText}`);
+      }
+    
+    
+    
+    })
       .catch(function(error) {
         console.error(error);
+      client.say(channel, "카드의 이름을 정확히 입력해주세요!")
       });
   }
 });
