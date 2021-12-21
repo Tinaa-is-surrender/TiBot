@@ -50,7 +50,6 @@ client.on("chat", function(channel, user, message, self) {
     axios
       .request(options)
       .then(function(response) {
-        console.log(response.data);
         const cardInfo = response.data
         const cardCost = response.data.cost
         const cardAttack = response.data.attack
@@ -62,7 +61,7 @@ client.on("chat", function(channel, user, message, self) {
         const cardType = response.data.type
         const cardCardSet = response.data.cardSet
         const cardName = response.data.name
-        console.log(response.data.attack)
+        console.log(JSON.parse(JSON.stringify(cardText)))
       })
       .catch(function(error) {
         console.error(error);
