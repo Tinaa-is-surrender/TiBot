@@ -68,7 +68,10 @@ client.on("chat", function(channel, user, message, self) {
         const cardAttack = cardInfoKey.attack;
       
         
-      const KoCardPlayerClass = cardPlayerClass.replace("Legendary", "전설")
+      
+      
+      console.log(KoCardRarity)
+      
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
