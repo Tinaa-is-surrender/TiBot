@@ -54,8 +54,10 @@ client.on("chat", function(channel, user, message, self) {
         const cardInfo = new Object(response.data)
         const cardKey = Object.keys(cardInfo);
         const cardValues = Object.values(cardInfo);
-        console.log(cardKey)
-        console.log(response.data.0.attack);
+        const key = '0';
+        const cardInfoo = cardInfo[key]
+        console.log(cardInfo)
+        console.log(cardInfoo.health)
         
         
       
