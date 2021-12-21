@@ -61,7 +61,10 @@ client.on("chat", function(channel, user, message, self) {
         const cardType = response.data.type
         const cardCardSet = response.data.cardSet
         const cardName = response.data.name
-        console.log(JSON.parse(JSON.stringify(cardText)))
+        const cardArray = Object.values(cardInfo);
+        
+        
+      
       })
       .catch(function(error) {
         console.error(error);
