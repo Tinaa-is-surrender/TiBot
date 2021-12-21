@@ -34,6 +34,7 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 // hearthstone
 
 client.on("chat", function(channel, user, message, self) {
+
   if (message.startsWith("!card")) {
     var axios = require("axios").default;
     var cardname = message.slice(6);
@@ -103,15 +104,12 @@ client.on("chat", function(channel, user, message, self) {
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
         client.say(channel, `${BetterCardText7}`);
       }
-    if(message.startsWith("!card help")){
-      
-    }
-    
+  
     
     })
       .catch(function(error) {
         console.error(error);
-      client.say(channel, "카드의 이름을 정확히 입력해주세요!")
+      client.say(channel, "카드의 이름을 정확히 입력해주세요! 도움말은 !help")
       });
   }
 });
@@ -307,6 +305,9 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
+  } else if (commandName == "!help"){
+    client.say(channel, "Card Searcher");
+    client.say(channel, "!card [카드이름] (띄어쓰기까지 정확히 입력 해주세요! 똑같은 카드가 두 장 이상 존재할경우 기존의 카드가 제시됩니다.")
   } else if (commandName == "!지능") {
     inteligence(channel);
   } else if (commandName == "!티봇 명령어") {
