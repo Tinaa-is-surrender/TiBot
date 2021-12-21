@@ -61,9 +61,14 @@ client.on("chat", function(channel, user, message, self) {
         const cardType = response.data.type
         const cardCardSet = response.data.cardSet
         const cardName = response.data.name
-        const cardArray = JSON.stringify(cardInfo);
-        console.log(cardArray)
-        client.say(channel, `${cardArray} 에요`);
+        const cardJson = JSON.stringify(cardInfo);
+        console.log(cardJson)
+        client.say(channel, `${cardJson} 에요`);
+        const start = cardJson.indexOf(`"`);
+        const end = cardJson.indexOf(`"`, start+1);
+        const list = cardJson.substring(start+1, end);
+        console.log(list)
+        
       
       })
       .catch(function(error) {
