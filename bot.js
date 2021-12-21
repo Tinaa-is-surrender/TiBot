@@ -41,7 +41,7 @@ client.on("chat", function(channel, user, message, self) {
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
-      params: { collectible: "1", locale: "koKR" },
+      params: { locale: "koKR" },
       headers: {
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "5eca39d3d2msha68f3b634afde86p140892jsnd4ed848f1aac"
@@ -72,25 +72,29 @@ client.on("chat", function(channel, user, message, self) {
       
         const BetterCardText1 = cardText.replace(/n/gi, '')
         const BetterCardText2 = BetterCardText1.replace(/\\/gi, ' ')
-        console.log(BetterCardText1);
-        console.log(BetterCardText2);
+        const BetterCardText3 = BetterCardText2.replace(/\</gi, '')
+        const BetterCardText4 = BetterCardText3.replace(/\>/gi, '')
+        const BetterCardText5 = BetterCardText4.replace(/\//gi, '')
+        const BetterCardText6 = BetterCardText5.replace(/b/gi, '')
+        const BetterCardText7 = BetterCardText6.replace(/\_/gi, ' ')
+        console.log(BetterCardText7);
       
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-      client.say(channel, `${cardText}`);
+      client.say(channel, `${BetterCardText7}`);
       } else if(cardType === "Spell"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
-        client.say(channel, `${cardText}`);
+        client.say(channel, `${BetterCardText7}`);
       } else if (cardType === "Hero"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 방어도: ${cardArmor}`);
-        client.say(channel, `${cardText}`);
+        client.say(channel, `${BetterCardText7}`);
       } else if (cardType === "Weapon"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
-        client.say(channel, `${cardText}`);
+        client.say(channel, `${BetterCardText7}`);
       }
     
     
