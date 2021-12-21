@@ -56,6 +56,8 @@ client.on("chat", function(channel, user, message, self) {
         const key = "0";
         const cardInfoKey = cardInfo[key];
         console.log(cardInfo);
+        
+        const cardSet = cardInfoKey.cardSet;      
         const cardName = cardInfoKey.name;
         const cardCardSet = cardInfoKey.cardSet;
         const cardType = cardInfoKey.type;
@@ -79,11 +81,16 @@ client.on("chat", function(channel, user, message, self) {
         const BetterCardText7 = BetterCardText6.replace(/\_/gi, ' ')
         console.log(BetterCardText7);
       
+      
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
       client.say(channel, `${BetterCardText7}`);
-      } else if(cardType === "Spell"){
+      } else if(cardType === "Spell" && cardSpellSchool === undefined){
+        client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+        client.say(channel, `마나: ${cardCost}`);
+        client.say(channel, `${BetterCardText7}`);
+      } else if(cardType ==="Spell" && cardSpellSchool !== undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
         client.say(channel, `${BetterCardText7}`);
@@ -96,7 +103,9 @@ client.on("chat", function(channel, user, message, self) {
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
         client.say(channel, `${BetterCardText7}`);
       }
-    
+    if(message.startsWith("!card help")){
+      
+    }
     
     
     })
