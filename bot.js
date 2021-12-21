@@ -70,8 +70,10 @@ client.on("chat", function(channel, user, message, self) {
         const cardArmor = cardInfoKey.armor;
         const cardDurability = cardInfoKey.durability;
       
-        const BetterCardText = cardText.replace(/\/b<>/gi)
-        console.log(BetterCardText);
+        const BetterCardText1 = cardText.replace(/n/gi, '')
+        const BetterCardText2 = BetterCardText1.replace(/\\/gi, ' ')
+        console.log(BetterCardText1);
+        console.log(BetterCardText2);
       
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
