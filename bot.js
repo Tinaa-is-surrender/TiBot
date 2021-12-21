@@ -20,7 +20,9 @@ client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
-client.connect();
+client.connect();{
+  
+}
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -109,7 +111,7 @@ client.on("chat", function(channel, user, message, self) {
     })
       .catch(function(error) {
         console.error(error);
-      client.say(channel, "카드의 이름을 정확히 입력해주세요! 도움말은 !help")
+      client.say(channel, "카드의 이름을 정확히 입력해주세요! 도움말은 !도움말")
       });
   }
 });
@@ -305,13 +307,14 @@ function onMessageHandler(channel, tags, message, self) {
     client.say(channel, `https://tgd.kr/s/suvely`);
   } else if (commandName == "!가챠") {
     gatcha(channel, "수블리");
-  } else if (commandName == "!help"){
+  } else if (commandName == "!도움말"){
     client.say(channel, "Card Searcher");
-    client.say(channel, "!card [카드이름] (띄어쓰기까지 정확히 입력 해주세요! 똑같은 카드가 두 장 이상 존재할경우 기존의 카드가 제시됩니다.")
+    client.say(channel, "명령어: !card [카드이름] 띄어쓰기까지 정확히 입력 해주세요! 똑같은 카드가 두 장 이상 존재할경우 기존의 카드가 제시됩니다.")
   } else if (commandName == "!지능") {
     inteligence(channel);
   } else if (commandName == "!티봇 명령어") {
     client.say(channel, `명령어: !트게더 !가챠 !지능 !추천 !방송 !맞짱`);
+    console.log(client.getUsername());
   } else if (commandName == "!방송") {
     client.say(
       channel,
