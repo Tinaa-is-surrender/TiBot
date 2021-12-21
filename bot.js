@@ -66,25 +66,14 @@ client.on("chat", function(channel, user, message, self) {
         const cardPlayerClass = cardInfoKey.playerClass;
         const cardHealth = cardInfoKey.health;
         const cardAttack = cardInfoKey.attack;
-        if (cardRarity === "Legendary") {
-          const KoRarity = "전설";
-        } else if (cardRarity === "Epic") {
-          const KoRarity = "특급";
-        } else if (cardRarity === "Rare") {
-          const KoRarity = "희귀";
-        } else if (cardRarity === "common") {
-          const KoRarity = "일반";
-        }
-
-        client.say(
-          channel,
-          `${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${KoRarity} 카드.`
-        );
-        client.say(
-          channel,
-          `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`
-        );
-        client.say(channel, `${cardText}`);
+      
+        
+      const KoCardPlayerClass = cardPlayerClass.replace("Legendary", "전설")
+      client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+      
+      client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
+      
+      client.say(channel, `${cardText}`);
       })
       .catch(function(error) {
         console.error(error);
