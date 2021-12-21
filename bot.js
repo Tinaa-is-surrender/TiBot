@@ -55,10 +55,23 @@ client.on("chat", function(channel, user, message, self) {
         const cardKey = Object.keys(cardInfo);
         const cardValues = Object.values(cardInfo);
         const key = '0';
-        const cardInfoo = cardInfo[key]
+        const cardInfoKey = cardInfo[key]
         console.log(cardInfo)
-        console.log(cardInfoo.health)
-        
+          const cardName = cardInfoKey.name
+          const cardCardSet = cardInfoKey.cardSet
+          const cardType = cardInfoKey.type
+          const cardRarity = cardInfoKey.rarity
+          const cardCost = cardInfoKey.cost
+          const cardText = cardInfoKey.text
+          const cardFlavor = cardInfoKey.flavor
+          const cardPlayerClass = cardInfoKey.playerClass
+          const cardHealth = cardInfoKey.health
+          const cardAttack = cardInfoKey.attack
+          if(cardRarity === 'Legendary') {
+            client.say(channel, `${cardName}, ${cardCardSet} 확장팩의 ${KoPlayerClass} 전설 카드.`)
+            client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`)
+            client.say(channel, ``)
+          }
         
       
       })
