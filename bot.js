@@ -38,15 +38,6 @@ client.on("chat", function(channel, user, message, self) {
     var axios = require("axios").default;
     var cardname = message.slice(6);
     var card = encodeURIComponent(cardname);
-
-    var cardcost;
-    var attack;
-    var health;
-    var text;
-    var flavor;
-    var rarity;
-    var type;
-
     var options = {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${card}`,
@@ -59,15 +50,25 @@ client.on("chat", function(channel, user, message, self) {
     axios
       .request(options)
       .then(function(response) {
-        return response.data;
+        console.log(response.data);
+        const cardInfo = response.data
+        const cardCost = response.data.cost
+        const cardAttack = response.data.attack
+        const cardHealth = response.data.health
+        const cardText = response.data.text
+        const cardFlavor = response.data.flavor
+        const cardRace = response.data.race
+        const cardRarity = response.data.rarity
+        const cardType = response.data.type
+        const cardCardSet = response.data.cardSet
+        const cardName = response.data.name
+        console.log(response.data.attack)
       })
       .catch(function(error) {
         console.error(error);
       });
 
-    if (card == null) client.say(channel, `pls input cardname`);
-    else client.say(channel, `we found this: ${cardname}`);
-    client.say(channel, ``);
+    
   }
 });
 
@@ -246,45 +247,6 @@ client.on("chat", function(channel, user, message, self) {
     }
   }
 });
-
-//check
-localStorage.setItem("num");
-const num = 0
-client.on("chat", function(channel, user, message, self) {
-  if(localStorage.getItem("num") === null){
-    localStorage.setItem("num", 1)
-  }
-  else if(localStorage.getitem("num") !== null){
-    const newNumber = num + 1
-    localStorage.setItem("num", newNumber)
-  }
-});
-//songs
-
-client.on("chat", function(channel, user, message, self) {
-  const songlist = [];
-  const inputsong = message.split(" ")[1];
-  songlist.push(inputsong);
-  function savesonglist(){
-    localStorage.setItem(inputsong, JSON.stringify(songlist))
-    client.say("")
-  }
-  function deletesonglist(){
-    localStorage.clear()
-    const deletedsong = songlist.pop()
-    client.say(channel, `[${deletedsong}]이 삭제되었습니다!`)
-  }
-  if(message.startsWith("!추가")){
-      savesonglist()
-    }
-  else if(message.startsWith("!목록")){
-    
-  }
-  else if(message.startsWith("!삭제")){
-    deletesonglist();
-  }
-  })
-//fishing
 
 function onMessageHandler(channel, tags, message, self) {
   if (self) {
