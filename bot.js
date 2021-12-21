@@ -20,9 +20,8 @@ client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
-client.connect();{
-  
-}
+client.connect();
+
 
 function randomNum(min, max) {
   var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -36,7 +35,6 @@ var days = Math.floor(streamperiod / (1000 * 60 * 60 * 24));
 // hearthstone
 
 client.on("chat", function(channel, user, message, self) {
-
   if (message.startsWith("!card")) {
     var axios = require("axios").default;
     var cardname = message.slice(6);
@@ -327,8 +325,11 @@ function onMessageHandler(channel, tags, message, self) {
   }
 }
 
+client.on("connected", (address, port) => {
+    client.say("ㅇㅇ")
+});
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
 }
-//https://api.twitch.tv/helix/search/channels?query=surrenderhs < api
+
