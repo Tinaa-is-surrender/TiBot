@@ -20,7 +20,9 @@ client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 
 // Connect to Twitch:
-client.connect();
+client.connect("chat", function(channel, user, message, self) {
+  client.say(channel, "채팅 서버와 연결되었습니다! 봇에 VIP/매니저 권한이 없다면 일부 기능이 정상 작동 하지 않아요.")
+});
 
 
 function randomNum(min, max) {
