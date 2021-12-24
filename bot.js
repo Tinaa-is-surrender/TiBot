@@ -106,6 +106,10 @@ client.on("chat", function(channel, user, message, self) {
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
         client.say(channel, `${BetterCardText8}`);
+      } else if (cardType === "Enchantment"){
+        client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
+        client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
+        client.say(channel, `${BetterCardText8}`);
       }
   
     
