@@ -83,33 +83,36 @@ client.on("chat", function(channel, user, message, self) {
         const BetterCardText6 = BetterCardText5.replace(/b/gi, '')
         const BetterCardText7 = BetterCardText6.replace(/\_/gi, ' ')
         const BetterCardText8 = BetterCardText7.replace(/\$/gi, '')
-        console.log(BetterCardText8);
+        const BetterCardText9 = BetterCardText8.replace(/\[/gi, '')
+        const BetterCardText10 = BetterCardText9.replace(/\]\$/gi, '')
+        const BetterCardText11 = BetterCardText10.replace(/x/gi, '')
+        console.log(BetterCardText11);
       
       
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-      client.say(channel, `키워드: ${BetterCardText8}`);
+      client.say(channel, `키워드: ${BetterCardText11}`);
       } else if(cardType === "Spell" && cardSpellSchool === undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}`);
-        client.say(channel, `키워드: ${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText11}`);
       } else if(cardType ==="Spell" && cardSpellSchool !== undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
-        client.say(channel, `키워드: ${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText11}`);
       } else if (cardType === "Hero"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 방어도: ${cardArmor}`);
-        client.say(channel, `키워드: ${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText11}`);
       } else if (cardType === "Weapon"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
-        client.say(channel, `$키워드: {BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText11}`);
       } else {
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-        client.say(channel, `키워드: ${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText11}`);
       }
   
     
@@ -315,6 +318,8 @@ function onMessageHandler(channel, tags, message, self) {
   } else if (commandName == "!도움말"){
     client.say(channel, "Card Searcher");
     client.say(channel, "명령어: !card [카드이름] 띄어쓰기까지 정확히 입력 해주세요! 똑같은 카드가 두 장 이상 존재할경우 기존의 카드가 제시됩니다.")
+  } else if (commandName == "surrenderKirby") {
+    client.say(channel, "BloodTrail")
   } else if (commandName == "!지능") {
     inteligence(channel);
   } else if (commandName == "!티봇 명령어") {
