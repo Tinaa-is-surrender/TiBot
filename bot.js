@@ -89,27 +89,27 @@ client.on("chat", function(channel, user, message, self) {
       if(cardType === "Minion"){
       client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
       client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-      client.say(channel, `${BetterCardText8}`);
+      client.say(channel, `키워드: ${BetterCardText8}`);
       } else if(cardType === "Spell" && cardSpellSchool === undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}`);
-        client.say(channel, `${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText8}`);
       } else if(cardType ==="Spell" && cardSpellSchool !== undefined){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 속성: ${cardSpellSchool}`);
-        client.say(channel, `${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText8}`);
       } else if (cardType === "Hero"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 방어도: ${cardArmor}`);
-        client.say(channel, `${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText8}`);
       } else if (cardType === "Weapon"){
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 내구도: ${cardDurability}`);
-        client.say(channel, `${BetterCardText8}`);
-      } else if (cardType === "Enchantment"){
+        client.say(channel, `$키워드: {BetterCardText8}`);
+      } else {
         client.say(channel,`${cardName}, ${cardCardSet} 확장팩의 ${cardPlayerClass} ${cardRarity} 카드.`);
         client.say(channel, `마나: ${cardCost}, 공격력: ${cardAttack}, 생명력: ${cardHealth}`);
-        client.say(channel, `${BetterCardText8}`);
+        client.say(channel, `키워드: ${BetterCardText8}`);
       }
   
     
